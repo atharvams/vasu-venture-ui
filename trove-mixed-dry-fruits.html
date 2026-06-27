@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Trove — Premium Mixed Dry Fruits</title>
+<meta name="description" content="Trove Mixed Dry Fruits — hand-sorted almonds, cashews, pistachios, walnuts, raisins and dates, roasted in small batches. Order on WhatsApp." />
+
+<!-- ====================================================================
+  EDIT-ME GUIDE
+  1) WhatsApp number  -> search for WHATSAPP_NUMBER in the <script> below.
+  2) Prices & pack sizes -> search for "Snack Pack", "Family Pack", "Gift Box".
+  3) Contact details (phone/email/address) -> search for "CONTACT DETAILS".
+  4) Brand name "Trove" -> find & replace if you want a different name.
+===================================================================== -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    /* ---- Token system, drawn from the dry fruits themselves ---- */
+    --ivory:        #FBF1E2;   /* cashew-cream background */
+    --card:         #FFFBF4;
+    --maroon:       #6E2A3A;   /* dried fig / raisin skin */
+    --maroon-dark:  #4A1C28;
+    --gold:         #C7912F;   /* saffron / turmeric */
+    --gold-light:   #E7B45F;
+    --green:        #748048;   /* pistachio */
+    --text:         #3A2418;   /* roasted-almond brown */
+    --text-soft:    #7A6354;
+    --line:         rgba(58,36,24,0.12);
+    --shadow:       0 18px 40px -16px rgba(74,28,40,0.28);
+    --radius:       18px;
+    --maxw:         1180px;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--ivory);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.6;
+  }
+  img,svg{ max-width:100%; display:block; }
+  a{ color:inherit; text-decoration:none; }
+  .icon{ width:100%; height:100%; }
+
+  h1,h2,h3{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    color:var(--maroon-dark);
+    margin:0 0 .4em;
+    letter-spacing:-0.01em;
+  }
+
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 28px; }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:.78rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:14px;
+  }
+  .eyebrow::before{ content:""; width:18px; height:2px; background:var(--gold); display:inline-block; }
+
+  section{ padding:88px 0; }
+  @media (max-width:720px){ section{ padding:64px 0; } }
+
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:14px 26px; border-radius:999px; font-weight:600; font-size:.95rem;
+    cursor:pointer; border:1.5px solid transparent; transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+  }
+  .btn:hover{ transform:translateY(-2px); }
+  .btn-primary{ background:var(--maroon); color:#fff; box-shadow:var(--shadow); }
+  .btn-primary:hover{ background:var(--maroon-dark); }
+  .btn-ghost{ background:transparent; color:var(--maroon); border-color:var(--line); }
+  .btn-ghost:hover{ background:rgba(110,42,58,0.06); }
+  .btn-gold{ background:var(--gold); color:#fff; box-shadow:0 14px 28px -12px rgba(199,145,47,.55); }
+  .btn-gold:hover{ background:#B07F25; }
+  .btn svg{ width:18px; height:18px; flex:none; }
+  :focus-visible{ outline:2.5px solid var(--gold); outline-offset:3px; }
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(251,241,226,0.88); backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{ display:flex; align-items:center; justify-content:space-between; padding:16px 28px; }
+  .brand{ display:flex; align-items:center; gap:10px; font-family:'Fraunces',serif; font-weight:700; font-size:1.4rem; color:var(--maroon-dark); }
+  .brand .mark{ width:34px; height:34px; border-radius:50%; background:var(--maroon); display:flex; align-items:center; justify-content:center; color:var(--gold-light); font-size:.85rem; font-weight:700; }
+  .navlinks{ display:flex; align-items:center; gap:30px; font-weight:500; font-size:.95rem; }
+  .navlinks a{ color:var(--text-soft); transition:color .15s; }
+  .navlinks a:hover{ color:var(--maroon); }
+  .nav-actions{ display:flex; align-items:center; gap:14px; }
+  .burger{ display:none; background:none; border:none; cursor:pointer; padding:6px; }
+  .burger span{ display:block; width:24px; height:2px; background:var(--maroon-dark); margin:5px 0; border-radius:2px; }
+
+  @media (max-width:900px){
+    .navlinks{ display:none; }
+    .burger{ display:block; }
+    .nav-actions .btn-ghost{ display:none; }
+  }
+  @media (max-width:560px){
+    .nav-actions .btn-primary{ display:none; }
+  }
+  .mobile-menu{
+    display:none; flex-direction:column; gap:2px; padding:0 28px 18px;
+  }
+  .mobile-menu.open{ display:flex; }
+  .mobile-menu a{ padding:12px 0; border-bottom:1px solid var(--line); color:var(--text); font-weight:500; }
+
+  /* ---------- Hero ---------- */
+  .hero{ padding:64px 0 40px; overflow:hidden; }
+  .hero .wrap{ display:grid; grid-template-columns:1.05fr .95fr; gap:50px; align-items:center; }
+  @media (max-width:920px){ .hero .wrap{ grid-template-columns:1fr; } .hero{ padding-top:36px; } }
+
+  .hero h1{ font-size:clamp(2.3rem, 4vw, 3.4rem); line-height:1.08; }
+  .hero p.lede{ font-size:1.1rem; color:var(--text-soft); max-width:480px; margin-bottom:30px; }
+  .hero-ctas{ display:flex; flex-wrap:wrap; gap:14px; margin-bottom:30px; }
+  .trust-line{ display:flex; align-items:center; gap:10px; font-size:.88rem; color:var(--text-soft); }
+  .trust-dots{ display:flex; }
+  .trust-dots span{ width:26px; height:26px; border-radius:50%; background:var(--gold-light); border:2px solid var(--ivory); margin-left:-8px; }
+  .trust-dots span:first-child{ margin-left:0; }
+
+  /* ---- the wreath signature ---- */
+  .treasure{ position:relative; width:380px; height:380px; margin:0 auto; }
+  .wreath-ring{ position:absolute; inset:0; animation:spin 70s linear infinite; }
+  @media (prefers-reduced-motion: reduce){ .wreath-ring{ animation:none; } }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+  .icon-item{
+    position:absolute; top:50%; left:50%; width:62px; height:62px; margin:-31px;
+    transform:rotate(var(--angle)) translate(155px) rotate(calc(-1 * var(--angle)));
+    filter:drop-shadow(0 8px 14px rgba(74,28,40,.18));
+  }
+  .treasure-center{
+    position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; gap:2px;
+  }
+  .treasure-center .ring{
+    width:168px; height:168px; border-radius:50%; background:var(--card);
+    border:2px dashed var(--gold-light);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    box-shadow:var(--shadow);
+  }
+  .treasure-center .ring .word{ font-family:'Fraunces',serif; font-weight:700; font-size:1.5rem; color:var(--maroon); letter-spacing:.02em; }
+  .treasure-center .ring .sub{ font-size:.66rem; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-top:4px; }
+  @media (max-width:920px){ .treasure{ width:300px; height:300px; margin-bottom:10px; } .icon-item{ transform:rotate(var(--angle)) translate(120px) rotate(calc(-1 * var(--angle))); width:50px; height:50px; margin:-25px;} .treasure-center .ring{ width:132px; height:132px; } }
+
+  /* ---------- What's inside ---------- */
+  .inside-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:44px; }
+  @media (max-width:880px){ .inside-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:560px){ .inside-grid{ grid-template-columns:1fr; } }
+  .ingredient{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:26px; display:flex; gap:16px; align-items:flex-start;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .ingredient:hover{ transform:translateY(-4px); box-shadow:var(--shadow); }
+  .ingredient .badge{ width:54px; height:54px; flex:none; border-radius:50%; background:var(--ivory); padding:11px; }
+  .ingredient h3{ font-size:1.1rem; margin-bottom:2px; }
+  .ingredient .local{ font-size:.8rem; color:var(--gold); font-weight:600; display:block; margin-bottom:6px; }
+  .ingredient p{ margin:0; font-size:.92rem; color:var(--text-soft); }
+
+  /* ---------- Why Trove (dark band) ---------- */
+  .why{ background:var(--maroon-dark); color:#F4E6DD; }
+  .why h2{ color:#fff; }
+  .why .eyebrow{ color:var(--gold-light); }
+  .why .eyebrow::before{ background:var(--gold-light); }
+  .why-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:28px; margin-top:46px; }
+  @media (max-width:900px){ .why-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:540px){ .why-grid{ grid-template-columns:1fr; } }
+  .why-item .num{ font-family:'Fraunces',serif; font-size:2rem; color:var(--gold-light); margin-bottom:10px; }
+  .why-item h3{ color:#fff; font-size:1.05rem; }
+  .why-item p{ color:#D9C2BA; font-size:.92rem; margin:0; }
+
+  /* ---------- Packs / pricing ---------- */
+  .section-head{ max-width:620px; }
+  .section-head.center{ margin:0 auto; text-align:center; }
+  .packs-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; margin-top:48px; }
+  @media (max-width:900px){ .packs-grid{ grid-template-columns:1fr; max-width:420px; margin-inline:auto; } }
+  .pack{
+    background:var(--card); border:1px solid var(--line); border-radius:24px; padding:34px 28px;
+    display:flex; flex-direction:column; text-align:center; position:relative;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .pack:hover{ transform:translateY(-6px); box-shadow:var(--shadow); }
+  .pack.popular{ border-color:var(--gold); }
+  .pack .tag{
+    position:absolute; top:-13px; left:50%; transform:translateX(-50%);
+    background:var(--gold); color:#fff; font-size:.72rem; font-weight:700; letter-spacing:.06em;
+    text-transform:uppercase; padding:5px 14px; border-radius:999px;
+  }
+  .pack .size{ font-size:.85rem; color:var(--text-soft); font-weight:600; text-transform:uppercase; letter-spacing:.06em; }
+  .pack h3{ font-size:1.9rem; margin:6px 0 4px; }
+  .pack .price{ font-family:'Fraunces',serif; font-size:2.1rem; color:var(--maroon); margin:10px 0 4px; }
+  .pack .price span{ font-size:1rem; color:var(--text-soft); font-weight:400; }
+  .pack ul{ list-style:none; padding:0; margin:18px 0 26px; text-align:left; display:flex; flex-direction:column; gap:10px; }
+  .pack ul li{ font-size:.9rem; color:var(--text-soft); display:flex; gap:10px; align-items:flex-start; }
+  .pack ul li svg{ width:16px; height:16px; flex:none; margin-top:3px; color:var(--green); }
+  .pack .btn{ justify-content:center; margin-top:auto; width:100%; }
+
+  /* ---------- Testimonials ---------- */
+  .quotes-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:46px; }
+  @media (max-width:880px){ .quotes-grid{ grid-template-columns:1fr; max-width:480px; margin-inline:auto; } }
+  .quote{ background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:28px; }
+  .quote .stars{ color:var(--gold); font-size:.95rem; letter-spacing:2px; margin-bottom:14px; }
+  .quote p{ font-size:.96rem; color:var(--text); margin:0 0 16px; }
+  .quote .who{ font-weight:700; font-size:.9rem; color:var(--maroon-dark); }
+  .quote .where{ font-size:.8rem; color:var(--text-soft); }
+
+  /* ---------- Final CTA ---------- */
+  .final-cta{ background:var(--gold); color:#fff; text-align:center; border-radius:28px; padding:60px 32px; margin:0 28px; }
+  .final-cta-wrap{ max-width:var(--maxw); margin:0 auto; }
+  .final-cta h2{ color:#fff; }
+  .final-cta p{ color:rgba(255,255,255,.92); max-width:520px; margin:0 auto 26px; }
+  .final-cta .btn-primary{ background:var(--maroon-dark); }
+  .final-cta .btn-primary:hover{ background:#37151E; }
+
+  /* ---------- Footer ---------- */
+  footer{ background:var(--maroon-dark); color:#E9D9CF; margin-top:90px; }
+  .footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px; padding:64px 0 36px; }
+  @media (max-width:780px){ .footer-grid{ grid-template-columns:1fr; gap:34px; } }
+  footer h4{ color:#fff; font-size:.85rem; letter-spacing:.1em; text-transform:uppercase; margin:0 0 16px; }
+  footer .brand{ color:#fff; margin-bottom:14px; }
+  footer .brand .mark{ background:var(--gold); color:var(--maroon-dark); }
+  footer p.tag{ color:#C9AFA5; font-size:.92rem; max-width:300px; }
+  footer ul{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px; }
+  footer ul a{ color:#D9C2BA; font-size:.92rem; }
+  footer ul a:hover{ color:#fff; }
+  footer .contact-item{ display:flex; gap:10px; align-items:flex-start; color:#D9C2BA; font-size:.92rem; margin-bottom:12px; }
+  footer .contact-item svg{ width:17px; height:17px; flex:none; margin-top:3px; color:var(--gold-light); }
+  .footer-bottom{ border-top:1px solid rgba(255,255,255,.12); padding:22px 0; font-size:.82rem; color:#B79C92; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+
+  /* ---------- Floating WhatsApp button ---------- */
+  .fab-wa{
+    position:fixed; bottom:24px; right:24px; z-index:60;
+    width:60px; height:60px; border-radius:50%; background:#25D366;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 14px 30px -8px rgba(0,0,0,.35);
+    transition:transform .18s ease;
+  }
+  .fab-wa:hover{ transform:scale(1.08); }
+  .fab-wa svg{ width:30px; height:30px; }
+
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity:1; transform:none; }
+  @media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; transition:none; } }
+</style>
+</head>
+<body>
+
+<!-- ============ ICON SPRITE (decorative, reused across the page) ============ -->
+<svg style="display:none" aria-hidden="true">
+  <symbol id="ic-almond" viewBox="0 0 64 64">
+    <path d="M32 4C44 4 54 19 54 33C54 49 44 60 32 60C20 60 10 49 10 33C10 19 20 4 32 4Z" fill="#E3B45F"/>
+    <path d="M32 14C32 14 25 24 25 34C25 44 32 50 32 50" stroke="#A8762E" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="ic-cashew" viewBox="0 0 64 64">
+    <path d="M16 40C7 33 9 17 21 10C30 4 41 8 43 18C45 26 38 29 37 36C36 42 43 46 40 53C36 60 24 58 20 50C18 46 21 44 16 40Z" fill="#F3E3C2" stroke="#D8B978" stroke-width="1.6"/>
+  </symbol>
+  <symbol id="ic-pistachio" viewBox="0 0 64 64">
+    <path d="M32 6C44 6 50 18 50 30C50 44 42 56 32 58C22 56 14 44 14 30C14 18 20 6 32 6Z" fill="#8FA563"/>
+    <path d="M32 11C39 12 44 21 44 30C44 40 39 49 32 52C29 49 27 41 27 33C27 24 29 14 32 11Z" fill="#F3E3C2"/>
+  </symbol>
+  <symbol id="ic-walnut" viewBox="0 0 64 64">
+    <circle cx="32" cy="32" r="26" fill="#B98A55"/>
+    <path d="M32 10C26 16 36 20 28 26C38 30 24 34 34 40C26 44 36 48 30 54" stroke="#7A5733" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path d="M20 22C24 26 22 32 18 34" stroke="#7A5733" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="ic-raisin" viewBox="0 0 64 64">
+    <circle cx="23" cy="25" r="12" fill="#5B2A3A"/>
+    <circle cx="39" cy="31" r="10.5" fill="#6E2A3A"/>
+    <circle cx="28" cy="42" r="9.5" fill="#4A2230"/>
+  </symbol>
+  <symbol id="ic-date" viewBox="0 0 64 64">
+    <path d="M17 32C17 18 24 8 32 8C40 8 47 18 47 32C47 46 40 56 32 56C24 56 17 46 17 32Z" fill="#6E3B23"/>
+    <path d="M22 24C26 24 38 24 42 24M20 32C26 32 38 32 44 32M22 40C26 40 38 40 42 40" stroke="#4A2614" stroke-width="1.6" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="ic-check" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ic-wa" viewBox="0 0 32 32"><path fill="currentColor" d="M16 3C9 3 3.3 8.7 3.3 15.7c0 2.6.8 5.1 2.2 7.2L4 29l6.3-1.6c2 .9 4.3 1.4 6.6 1.4 7 0 12.7-5.7 12.7-12.7C29.6 8.7 23.9 3 16 3zm0 23.1c-2 0-4-.5-5.7-1.5l-.4-.2-4.2 1.1 1.1-4.1-.3-.4c-1.1-1.8-1.7-3.8-1.7-5.9 0-5.9 4.8-10.6 10.7-10.6 5.9 0 10.6 4.8 10.6 10.6S21.9 26.1 16 26.1zm5.9-7.9c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.1-.2.3-.8 1.1-1 1.3-.2.2-.4.3-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-2-1.8-2.3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.1-.6-.1-.2-.7-1.6-.9-2.2-.2-.5-.4-.5-.6-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.2.2 2 3.1 4.9 4.2 2.9 1.1 2.9.8 3.4.7.5-.1 1.6-.7 1.8-1.3.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.6-.4z"/></symbol>
+</svg>
+
+<header>
+  <div class="nav wrap">
+    <a href="#top" class="brand"><span class="mark">T</span>Trove</a>
+    <nav class="navlinks">
+      <a href="#inside">What's Inside</a>
+      <a href="#why">Why Trove</a>
+      <a href="#packs">Packs</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="#packs" class="btn btn-ghost">See Packs</a>
+      <a class="btn btn-primary" data-wa data-msg="Hi! I'd like to order Trove Mixed Dry Fruits.">
+        <svg class="icon" style="width:18px;height:18px"><use href="#ic-wa"/></svg>
+        Order on WhatsApp
+      </a>
+      <button class="burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#inside">What's Inside</a>
+    <a href="#why">Why Trove</a>
+    <a href="#packs">Packs</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+    <a class="btn btn-primary" style="margin-top:14px; justify-content:center;" data-wa data-msg="Hi! I'd like to order Trove Mixed Dry Fruits.">
+      <svg class="icon" style="width:18px;height:18px"><use href="#ic-wa"/></svg>
+      Order on WhatsApp
+    </a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Premium mixed dry fruits</span>
+        <h1>A trove of dry&nbsp;fruits,<br>in every handful.</h1>
+        <p class="lede">Almonds, cashews, pistachios, walnuts, raisins and dates — hand-sorted, small-batch roasted, and mixed in exact proportion. No added sugar, no shortcuts.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" data-wa data-msg="Hi! I'd like to order Trove Mixed Dry Fruits.">
+            <svg class="icon" style="width:18px;height:18px"><use href="#ic-wa"/></svg>
+            Order on WhatsApp
+          </a>
+          <a href="#inside" class="btn btn-ghost">See what's inside</a>
+        </div>
+        <div class="trust-line">
+          <span class="trust-dots"><span></span><span></span><span></span><span></span></span>
+          Packed fresh, shipped in sealed pouches — every single order.
+        </div>
+      </div>
+
+      <div class="treasure">
+        <div class="wreath-ring">
+          <div class="icon-item" style="--angle:0deg"><svg class="icon"><use href="#ic-almond"/></svg></div>
+          <div class="icon-item" style="--angle:51deg"><svg class="icon"><use href="#ic-cashew"/></svg></div>
+          <div class="icon-item" style="--angle:103deg"><svg class="icon"><use href="#ic-pistachio"/></svg></div>
+          <div class="icon-item" style="--angle:154deg"><svg class="icon"><use href="#ic-walnut"/></svg></div>
+          <div class="icon-item" style="--angle:206deg"><svg class="icon"><use href="#ic-date"/></svg></div>
+          <div class="icon-item" style="--angle:257deg"><svg class="icon"><use href="#ic-raisin"/></svg></div>
+          <div class="icon-item" style="--angle:309deg"><svg class="icon"><use href="#ic-almond"/></svg></div>
+        </div>
+        <div class="treasure-center">
+          <div class="ring">
+            <span class="word">Trove</span>
+            <span class="sub">Mixed Dry Fruits</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WHAT'S INSIDE ===================== -->
+  <section id="inside">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">The mix</span>
+        <h2>Six kinds. One handful.</h2>
+        <p style="color:var(--text-soft); max-width:520px;">Every pack carries the same ratio, batch after batch — so the handful you loved last time is the handful you'll get this time.</p>
+      </div>
+
+      <div class="inside-grid">
+        <div class="ingredient reveal">
+          <div class="badge"><svg class="icon"><use href="#ic-almond"/></svg></div>
+          <div><h3>Almonds</h3><span class="local">Badam</span><p>Crunchy and mild, lightly roasted to keep the bite.</p></div>
+        </div>
+        <div class="ingredient reveal">
+          <div class="badge"><svg class="icon"><use href="#ic-cashew"/></svg></div>
+          <div><h3>Cashews</h3><span class="local">Kaju</span><p>Whole, buttery kernels — sorted to remove broken pieces.</p></div>
+        </div>
+        <div class="ingredient reveal">
+          <div class="badge"><svg class="icon"><use href="#ic-pistachio"/></svg></div>
+          <div><h3>Pistachios</h3><span class="local">Pista</span><p>Sea-salt roasted, split shells for an easy snack.</p></div>
+        </div>
+        <div class="ingredient reveal">
+          <div class="badge"><svg class="icon"><use href="#ic-walnut"/></svg></div>
+          <div><h3>Walnuts</h3><span class="local">Akhrot</span><p>Halves and quarters, picked for freshness over size.</p></div>
+        </div>
+        <div class="ingredient reveal">
+          <div class="badge"><svg class="icon"><use href="#ic-raisin"/></svg></div>
+          <div><h3>Raisins</h3><span class="local">Kishmish</span><p>Sun-dried and naturally sweet — no added sugar.</p></div>
+        </div>
+        <div class="ingredient reveal">
+          <div class="badge"><svg class="icon"><use href="#ic-date"/></svg></div>
+          <div><h3>Dried Dates</h3><span class="local">Khajur</span><p>Soft, chewy pieces that round out every handful.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WHY TROVE ===================== -->
+  <section class="why" id="why">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Why trove</span>
+        <h2>Made the slow way, on purpose.</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-item reveal">
+          <div class="num">01</div>
+          <h3>Hand-sorted</h3>
+          <p>Each batch is checked by hand to pull out broken pieces, shells and dust before it ever reaches the roaster.</p>
+        </div>
+        <div class="why-item reveal">
+          <div class="num">02</div>
+          <h3>Small-batch roasted</h3>
+          <p>We roast in small batches so every nut gets even heat — no burnt edges, no raw centres.</p>
+        </div>
+        <div class="why-item reveal">
+          <div class="num">03</div>
+          <h3>Sealed fresh</h3>
+          <p>Vacuum-sealed pouches lock in the crunch from the day we pack it to the day you open it.</p>
+        </div>
+        <div class="why-item reveal">
+          <div class="num">04</div>
+          <h3>Nothing extra</h3>
+          <p>No added sugar, no oil, no preservatives. Just the dry fruits, mixed in the right ratio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PACKS / PRICING ===================== -->
+  <section id="packs">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Pick a pack</span>
+        <h2>One mix, three sizes.</h2>
+        <p style="color:var(--text-soft);">Prices below are samples — update them to match your own pricing.</p>
+      </div>
+
+      <div class="packs-grid">
+        <div class="pack reveal">
+          <span class="size">250 g</span>
+          <h3>Snack Pack</h3>
+          <div class="price">₹249</div>
+          <ul>
+            <li><svg class="icon"><use href="#ic-check"/></svg>Good for everyday snacking</li>
+            <li><svg class="icon"><use href="#ic-check"/></svg>Resealable pouch</li>
+            <li><svg class="icon"><use href="#ic-check"/></svg>~10 servings</li>
+          </ul>
+          <a class="btn btn-ghost" data-wa data-msg="Hi! I'd like to order the Trove Snack Pack (250g).">Order on WhatsApp</a>
+        </div>
+
+        <div class="pack popular reveal">
+          <span class="tag">Most ordered</span>
+          <span class="size">500 g</span>
+          <h3>Family Pack</h3>
+          <div class="price">₹459</div>
+          <ul>
+            <li><svg class="icon"><use href="#ic-check"/></svg>Best value per gram</li>
+            <li><svg class="icon"><use href="#ic-check"/></svg>Stocks up the whole week</li>
+            <li><svg class="icon"><use href="#ic-check"/></svg>~20 servings</li>
+          </ul>
+          <a class="btn btn-primary" data-wa data-msg="Hi! I'd like to order the Trove Family Pack (500g).">Order on WhatsApp</a>
+        </div>
+
+        <div class="pack reveal">
+          <span class="size">1 kg</span>
+          <h3>Gift Box</h3>
+          <div class="price">₹849</div>
+          <ul>
+            <li><svg class="icon"><use href="#ic-check"/></svg>Festive box packaging</li>
+            <li><svg class="icon"><use href="#ic-check"/></svg>Great for gifting</li>
+            <li><svg class="icon"><use href="#ic-check"/></svg>~40 servings</li>
+          </ul>
+          <a class="btn btn-ghost" data-wa data-msg="Hi! I'd like to order the Trove Gift Box (1kg).">Order on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TESTIMONIALS ===================== -->
+  <section id="reviews">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <span class="eyebrow">What customers say</span>
+        <h2>Trusted for the everyday & the festive.</h2>
+      </div>
+      <div class="quotes-grid">
+        <div class="quote reveal">
+          <div class="stars">★★★★★</div>
+          <p>"The mix is exactly the same every time I order — same ratio, same crunch. That consistency is rare."</p>
+          <div class="who">Anjali Deshmukh</div>
+          <div class="where">Pune</div>
+        </div>
+        <div class="quote reveal">
+          <div class="stars">★★★★★</div>
+          <p>"Ordered the Gift Box for Diwali this year instead of sweets — everyone asked where it was from."</p>
+          <div class="who">Rohan Mehta</div>
+          <div class="where">Mumbai</div>
+        </div>
+        <div class="quote reveal">
+          <div class="stars">★★★★★</div>
+          <p>"No added sugar and you can actually taste it — clean, fresh, never stale or rubbery."</p>
+          <div class="who">Meera Kulkarni</div>
+          <div class="where">Nagpur</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FINAL CTA ===================== -->
+  <section>
+    <div class="wrap">
+      <div class="final-cta reveal">
+        <div class="final-cta-wrap">
+          <h2>Ready for your first trove?</h2>
+          <p>Message us on WhatsApp — tell us the pack you want and where to send it.</p>
+          <a class="btn btn-primary" data-wa data-msg="Hi! I'd like to order Trove Mixed Dry Fruits.">
+            <svg class="icon" style="width:18px;height:18px"><use href="#ic-wa"/></svg>
+            Order on WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer id="contact">
+  <div class="wrap footer-grid">
+    <div>
+      <a href="#top" class="brand"><span class="mark">T</span>Trove</a>
+      <p class="tag">Premium mixed dry fruits, hand-sorted and small-batch roasted. Mixed in Maharashtra, sent across India.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#inside">What's Inside</a></li>
+        <li><a href="#why">Why Trove</a></li>
+        <li><a href="#packs">Packs</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <!-- CONTACT DETAILS: replace phone, email and address below -->
+      <div class="contact-item">
+        <svg class="icon"><use href="#ic-wa"/></svg>
+        <a data-wa data-msg="Hi! I'd like to order Trove Mixed Dry Fruits.">+91 90000 00000 (WhatsApp)</a>
+      </div>
+      <div class="contact-item">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7l9 6 9-6M5 5h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg>
+        <a href="mailto:hello@trovedryfruits.in">hello@trovedryfruits.in</a>
+      </div>
+      <div class="contact-item">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s7-7.4 7-12.4A7 7 0 0 0 5 9.6C5 14.6 12 22 12 22z"/><circle cx="12" cy="9.5" r="2.4"/></svg>
+        <span>Sangli, Maharashtra, India</span>
+      </div>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 Trove. All rights reserved.</span>
+    <span>Mixed dry fruits, made simple.</span>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp button -->
+<a class="fab-wa" data-wa data-msg="Hi! I'd like to order Trove Mixed Dry Fruits." aria-label="Order on WhatsApp">
+  <svg class="icon" style="color:#fff"><use href="#ic-wa"/></svg>
+</a>
+
+<script>
+  // ====== 1) SET YOUR WHATSAPP NUMBER HERE ======
+  // Country code + number, digits only, no + no spaces, e.g. "919876543210"
+  const WHATSAPP_NUMBER = "91XXXXXXXXXX"; // TODO: replace with your real WhatsApp number
+
+  document.querySelectorAll('[data-wa]').forEach(function(el){
+    var msg = el.getAttribute('data-msg') || "Hi! I'd like to order Trove Mixed Dry Fruits.";
+    el.href = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg);
+    el.target = '_blank';
+    el.rel = 'noopener';
+  });
+
+  // Mobile menu toggle
+  var burger = document.getElementById('burgerBtn');
+  var mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', function(){
+    var open = mobileMenu.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  mobileMenu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ mobileMenu.classList.remove('open'); });
+  });
+
+  // Scroll-reveal
+  if ('IntersectionObserver' in window) {
+    var revealEls = document.querySelectorAll('.reveal');
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  }
+</script>
+
+</body>
+</html>
