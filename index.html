@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Trove — Premium Mixed Dry Fruits</title>
-<meta name="description" content="Trove Mixed Dry Fruits — hand-sorted almonds, cashews, pistachios, walnuts, raisins and dates, roasted in small batches. Order on WhatsApp." />
+<title>PROTNUT — We Enhance Natural Nutrition with Taste</title>
+<meta name="description" content="PROTNUT Mixed Dry Fruits — hand-sorted almonds, cashews, pistachios, walnuts, raisins and dates, roasted in small batches. We enhance natural nutrition with taste. Order on WhatsApp." />
 
 <!-- ====================================================================
   EDIT-ME GUIDE
   1) WhatsApp number  -> search for WHATSAPP_NUMBER in the <script> below.
   2) Prices & pack sizes -> search for "Snack Pack", "Family Pack", "Gift Box".
   3) Contact details (phone/email/address) -> search for "CONTACT DETAILS".
-  4) Brand name "Trove" -> find & replace if you want a different name.
+  4) Brand name "PROTNUT" -> find & replace if you want a different name.
 ===================================================================== -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,18 +20,18 @@
 
 <style>
   :root{
-    /* ---- Token system, drawn from the dry fruits themselves ---- */
-    --ivory:        #FBF1E2;   /* cashew-cream background */
-    --card:         #FFFBF4;
-    --maroon:       #6E2A3A;   /* dried fig / raisin skin */
-    --maroon-dark:  #4A1C28;
-    --gold:         #C7912F;   /* saffron / turmeric */
-    --gold-light:   #E7B45F;
-    --green:        #748048;   /* pistachio */
-    --text:         #3A2418;   /* roasted-almond brown */
-    --text-soft:    #7A6354;
-    --line:         rgba(58,36,24,0.12);
-    --shadow:       0 18px 40px -16px rgba(74,28,40,0.28);
+    /* ---- Token system, drawn from the PROTNUT logo (leaf-green + gold) ---- */
+    --ivory:        #F5F8F0;   /* soft natural background */
+    --card:         #FFFFFF;
+    --maroon:       #2E7D32;   /* PROTNUT leaf green (primary) */
+    --maroon-dark:  #1B5E20;   /* deep forest green */
+    --gold:         #D4A017;   /* golden nut yellow */
+    --gold-light:   #F0C419;   /* bright gold */
+    --green:        #3E8E41;   /* fresh green accent */
+    --text:         #23331C;   /* deep green-brown text */
+    --text-soft:    #5B6B52;
+    --line:         rgba(30,60,25,0.12);
+    --shadow:       0 18px 40px -16px rgba(27,94,32,0.26);
     --radius:       18px;
     --maxw:         1180px;
   }
@@ -79,19 +79,20 @@
   .btn-primary:hover{ background:var(--maroon-dark); }
   .btn-ghost{ background:transparent; color:var(--maroon); border-color:var(--line); }
   .btn-ghost:hover{ background:rgba(110,42,58,0.06); }
-  .btn-gold{ background:var(--gold); color:#fff; box-shadow:0 14px 28px -12px rgba(199,145,47,.55); }
-  .btn-gold:hover{ background:#B07F25; }
+  .btn-gold{ background:var(--gold); color:#fff; box-shadow:0 14px 28px -12px rgba(212,160,23,.55); }
+  .btn-gold:hover{ background:#B8891A; }
   .btn svg{ width:18px; height:18px; flex:none; }
   :focus-visible{ outline:2.5px solid var(--gold); outline-offset:3px; }
 
   /* ---------- Header ---------- */
   header{
     position:sticky; top:0; z-index:50;
-    background:rgba(251,241,226,0.88); backdrop-filter:blur(8px);
+    background:rgba(245,248,240,0.88); backdrop-filter:blur(8px);
     border-bottom:1px solid var(--line);
   }
   .nav{ display:flex; align-items:center; justify-content:space-between; padding:16px 28px; }
-  .brand{ display:flex; align-items:center; gap:10px; font-family:'Fraunces',serif; font-weight:700; font-size:1.4rem; color:var(--maroon-dark); }
+  .brand{ display:flex; align-items:center; gap:12px; font-family:'Fraunces',serif; font-weight:700; font-size:1.4rem; color:var(--maroon-dark); }
+  .brand .logo-img{ width:44px; height:44px; border-radius:50%; object-fit:cover; border:1.5px solid var(--gold-light); box-shadow:0 4px 12px -4px rgba(27,94,32,.35); }
   .brand .mark{ width:34px; height:34px; border-radius:50%; background:var(--maroon); display:flex; align-items:center; justify-content:center; color:var(--gold-light); font-size:.85rem; font-weight:700; }
   .navlinks{ display:flex; align-items:center; gap:30px; font-weight:500; font-size:.95rem; }
   .navlinks a{ color:var(--text-soft); transition:color .15s; }
@@ -142,14 +143,15 @@
     text-align:center; gap:2px;
   }
   .treasure-center .ring{
-    width:168px; height:168px; border-radius:50%; background:var(--card);
-    border:2px dashed var(--gold-light);
+    width:210px; height:210px; border-radius:50%; background:var(--card);
+    border:2px solid var(--gold-light);
     display:flex; flex-direction:column; align-items:center; justify-content:center;
-    box-shadow:var(--shadow);
+    box-shadow:var(--shadow); overflow:hidden; padding:6px;
   }
+  .treasure-center .ring .logo-hero{ width:100%; height:100%; border-radius:50%; object-fit:cover; }
   .treasure-center .ring .word{ font-family:'Fraunces',serif; font-weight:700; font-size:1.5rem; color:var(--maroon); letter-spacing:.02em; }
   .treasure-center .ring .sub{ font-size:.66rem; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-top:4px; }
-  @media (max-width:920px){ .treasure{ width:300px; height:300px; margin-bottom:10px; } .icon-item{ transform:rotate(var(--angle)) translate(120px) rotate(calc(-1 * var(--angle))); width:50px; height:50px; margin:-25px;} .treasure-center .ring{ width:132px; height:132px; } }
+  @media (max-width:920px){ .treasure{ width:300px; height:300px; margin-bottom:10px; } .icon-item{ transform:rotate(var(--angle)) translate(120px) rotate(calc(-1 * var(--angle))); width:50px; height:50px; margin:-25px;} .treasure-center .ring{ width:170px; height:170px; } }
 
   /* ---------- What's inside ---------- */
   .inside-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:44px; }
@@ -166,8 +168,8 @@
   .ingredient .local{ font-size:.8rem; color:var(--gold); font-weight:600; display:block; margin-bottom:6px; }
   .ingredient p{ margin:0; font-size:.92rem; color:var(--text-soft); }
 
-  /* ---------- Why Trove (dark band) ---------- */
-  .why{ background:var(--maroon-dark); color:#F4E6DD; }
+  /* ---------- Why PROTNUT (dark band) ---------- */
+  .why{ background:var(--maroon-dark); color:#E4EFDF; }
   .why h2{ color:#fff; }
   .why .eyebrow{ color:var(--gold-light); }
   .why .eyebrow::before{ background:var(--gold-light); }
@@ -176,7 +178,7 @@
   @media (max-width:540px){ .why-grid{ grid-template-columns:1fr; } }
   .why-item .num{ font-family:'Fraunces',serif; font-size:2rem; color:var(--gold-light); margin-bottom:10px; }
   .why-item h3{ color:#fff; font-size:1.05rem; }
-  .why-item p{ color:#D9C2BA; font-size:.92rem; margin:0; }
+  .why-item p{ color:#CADFC2; font-size:.92rem; margin:0; }
 
   /* ---------- Packs / pricing ---------- */
   .section-head{ max-width:620px; }
@@ -222,19 +224,19 @@
   .final-cta .btn-primary:hover{ background:#37151E; }
 
   /* ---------- Footer ---------- */
-  footer{ background:var(--maroon-dark); color:#E9D9CF; margin-top:90px; }
+  footer{ background:var(--maroon-dark); color:#DCEAD5; margin-top:90px; }
   .footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px; padding:64px 0 36px; }
   @media (max-width:780px){ .footer-grid{ grid-template-columns:1fr; gap:34px; } }
   footer h4{ color:#fff; font-size:.85rem; letter-spacing:.1em; text-transform:uppercase; margin:0 0 16px; }
   footer .brand{ color:#fff; margin-bottom:14px; }
   footer .brand .mark{ background:var(--gold); color:var(--maroon-dark); }
-  footer p.tag{ color:#C9AFA5; font-size:.92rem; max-width:300px; }
+  footer p.tag{ color:#AFC6A5; font-size:.92rem; max-width:300px; }
   footer ul{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px; }
-  footer ul a{ color:#D9C2BA; font-size:.92rem; }
+  footer ul a{ color:#CADFC2; font-size:.92rem; }
   footer ul a:hover{ color:#fff; }
-  footer .contact-item{ display:flex; gap:10px; align-items:flex-start; color:#D9C2BA; font-size:.92rem; margin-bottom:12px; }
+  footer .contact-item{ display:flex; gap:10px; align-items:flex-start; color:#CADFC2; font-size:.92rem; margin-bottom:12px; }
   footer .contact-item svg{ width:17px; height:17px; flex:none; margin-top:3px; color:var(--gold-light); }
-  .footer-bottom{ border-top:1px solid rgba(255,255,255,.12); padding:22px 0; font-size:.82rem; color:#B79C92; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+  .footer-bottom{ border-top:1px solid rgba(255,255,255,.12); padding:22px 0; font-size:.82rem; color:#9DB593; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; }
 
   /* ---------- Floating WhatsApp button ---------- */
   .fab-wa{
@@ -287,17 +289,17 @@
 
 <header>
   <div class="nav wrap">
-    <a href="#top" class="brand"><span class="mark">T</span>Trove</a>
+    <a href="#top" class="brand"><img class="logo-img" src="IMG-20260905-WA0005.jpg" alt="PROTNUT logo">PROTNUT</a>
     <nav class="navlinks">
       <a href="#inside">What's Inside</a>
-      <a href="#why">Why Trove</a>
+      <a href="#why">Why PROTNUT</a>
       <a href="#packs">Packs</a>
       <a href="#reviews">Reviews</a>
       <a href="#contact">Contact</a>
     </nav>
     <div class="nav-actions">
       <a href="#packs" class="btn btn-ghost">See Packs</a>
-      <a class="btn btn-primary" data-wa data-msg="Hi! I'd like to order Trove Mixed Dry Fruits.">
+      <a class="btn btn-primary" data-wa data-msg="Hi! I'd like to order PROTNUT Mixed Dry Fruits.">
         <svg class="icon" style="width:18px;height:18px"><use href="#ic-wa"/></svg>
         Order on WhatsApp
       </a>
@@ -308,11 +310,11 @@
   </div>
   <div class="mobile-menu" id="mobileMenu">
     <a href="#inside">What's Inside</a>
-    <a href="#why">Why Trove</a>
+    <a href="#why">Why PROTNUT</a>
     <a href="#packs">Packs</a>
     <a href="#reviews">Reviews</a>
     <a href="#contact">Contact</a>
-    <a class="btn btn-primary" style="margin-top:14px; justify-content:center;" data-wa data-msg="Hi! I'd like to order Trove Mixed Dry Fruits.">
+    <a class="btn btn-primary" style="margin-top:14px; justify-content:center;" data-wa data-msg="Hi! I'd like to order PROTNUT Mixed Dry Fruits.">
       <svg class="icon" style="width:18px;height:18px"><use href="#ic-wa"/></svg>
       Order on WhatsApp
     </a>
@@ -326,10 +328,10 @@
     <div class="wrap">
       <div>
         <span class="eyebrow">Premium mixed dry fruits</span>
-        <h1>A trove of dry&nbsp;fruits,<br>in every handful.</h1>
+        <h1>We enhance natural<br>nutrition with&nbsp;taste.</h1>
         <p class="lede">Almonds, cashews, pistachios, walnuts, raisins and dates — hand-sorted, small-batch roasted, and mixed in exact proportion. No added sugar, no shortcuts.</p>
         <div class="hero-ctas">
-          <a class="btn btn-primary" data-wa data-msg="Hi! I'd like to order Trove Mixed Dry Fruits.">
+          <a class="btn btn-primary" data-wa data-msg="Hi! I'd like to order PROTNUT Mixed Dry Fruits.">
             <svg class="icon" style="width:18px;height:18px"><use href="#ic-wa"/></svg>
             Order on WhatsApp
           </a>
@@ -353,8 +355,7 @@
         </div>
         <div class="treasure-center">
           <div class="ring">
-            <span class="word">Trove</span>
-            <span class="sub">Mixed Dry Fruits</span>
+            <img class="logo-hero" src="IMG-20260905-WA0005.jpg" alt="PROTNUT — We Enhance Natural Nutrition with Taste">
           </div>
         </div>
       </div>
@@ -399,11 +400,11 @@
     </div>
   </section>
 
-  <!-- ===================== WHY TROVE ===================== -->
+  <!-- ===================== WHY PROTNUT ===================== -->
   <section class="why" id="why">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="eyebrow">Why trove</span>
+        <span class="eyebrow">Why protnut</span>
         <h2>Made the slow way, on purpose.</h2>
       </div>
       <div class="why-grid">
@@ -450,7 +451,7 @@
             <li><svg class="icon"><use href="#ic-check"/></svg>Resealable pouch</li>
             <li><svg class="icon"><use href="#ic-check"/></svg>~10 servings</li>
           </ul>
-          <a class="btn btn-ghost" data-wa data-msg="Hi! I'd like to order the Trove Snack Pack (250g).">Order on WhatsApp</a>
+          <a class="btn btn-ghost" data-wa data-msg="Hi! I'd like to order the PROTNUT Snack Pack (250g).">Order on WhatsApp</a>
         </div>
 
         <div class="pack popular reveal">
@@ -463,7 +464,7 @@
             <li><svg class="icon"><use href="#ic-check"/></svg>Stocks up the whole week</li>
             <li><svg class="icon"><use href="#ic-check"/></svg>~20 servings</li>
           </ul>
-          <a class="btn btn-primary" data-wa data-msg="Hi! I'd like to order the Trove Family Pack (500g).">Order on WhatsApp</a>
+          <a class="btn btn-primary" data-wa data-msg="Hi! I'd like to order the PROTNUT Family Pack (500g).">Order on WhatsApp</a>
         </div>
 
         <div class="pack reveal">
@@ -475,7 +476,7 @@
             <li><svg class="icon"><use href="#ic-check"/></svg>Great for gifting</li>
             <li><svg class="icon"><use href="#ic-check"/></svg>~40 servings</li>
           </ul>
-          <a class="btn btn-ghost" data-wa data-msg="Hi! I'd like to order the Trove Gift Box (1kg).">Order on WhatsApp</a>
+          <a class="btn btn-ghost" data-wa data-msg="Hi! I'd like to order the PROTNUT Gift Box (1kg).">Order on WhatsApp</a>
         </div>
       </div>
     </div>
@@ -516,9 +517,9 @@
     <div class="wrap">
       <div class="final-cta reveal">
         <div class="final-cta-wrap">
-          <h2>Ready for your first trove?</h2>
+          <h2>Ready for your first PROTNUT pack?</h2>
           <p>Message us on WhatsApp — tell us the pack you want and where to send it.</p>
-          <a class="btn btn-primary" data-wa data-msg="Hi! I'd like to order Trove Mixed Dry Fruits.">
+          <a class="btn btn-primary" data-wa data-msg="Hi! I'd like to order PROTNUT Mixed Dry Fruits.">
             <svg class="icon" style="width:18px;height:18px"><use href="#ic-wa"/></svg>
             Order on WhatsApp
           </a>
@@ -533,14 +534,14 @@
 <footer id="contact">
   <div class="wrap footer-grid">
     <div>
-      <a href="#top" class="brand"><span class="mark">T</span>Trove</a>
-      <p class="tag">Premium mixed dry fruits, hand-sorted and small-batch roasted. Mixed in Maharashtra, sent across India.</p>
+      <a href="#top" class="brand"><img class="logo-img" src="IMG-20260905-WA0005.jpg" alt="PROTNUT logo">PROTNUT</a>
+      <p class="tag">We enhance natural nutrition with taste. Premium mixed dry fruits, hand-sorted and small-batch roasted. Mixed in Maharashtra, sent across India.</p>
     </div>
     <div>
       <h4>Quick Links</h4>
       <ul>
         <li><a href="#inside">What's Inside</a></li>
-        <li><a href="#why">Why Trove</a></li>
+        <li><a href="#why">Why PROTNUT</a></li>
         <li><a href="#packs">Packs</a></li>
         <li><a href="#reviews">Reviews</a></li>
       </ul>
@@ -550,11 +551,11 @@
       <!-- CONTACT DETAILS: replace phone, email and address below -->
       <div class="contact-item">
         <svg class="icon"><use href="#ic-wa"/></svg>
-        <a data-wa data-msg="Hi! I'd like to order Trove Mixed Dry Fruits.">+91 90000 00000 (WhatsApp)</a>
+        <a data-wa data-msg="Hi! I'd like to order PROTNUT Mixed Dry Fruits.">+91 90000 00000 (WhatsApp)</a>
       </div>
       <div class="contact-item">
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7l9 6 9-6M5 5h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg>
-        <a href="mailto:hello@trovedryfruits.in">hello@trovedryfruits.in</a>
+        <a href="mailto:hello@protnut.in">hello@protnut.in</a>
       </div>
       <div class="contact-item">
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s7-7.4 7-12.4A7 7 0 0 0 5 9.6C5 14.6 12 22 12 22z"/><circle cx="12" cy="9.5" r="2.4"/></svg>
@@ -563,13 +564,13 @@
     </div>
   </div>
   <div class="wrap footer-bottom">
-    <span>© 2026 Trove. All rights reserved.</span>
-    <span>Mixed dry fruits, made simple.</span>
+    <span>© 2026 PROTNUT. All rights reserved.</span>
+    <span>We enhance natural nutrition with taste.</span>
   </div>
 </footer>
 
 <!-- Floating WhatsApp button -->
-<a class="fab-wa" data-wa data-msg="Hi! I'd like to order Trove Mixed Dry Fruits." aria-label="Order on WhatsApp">
+<a class="fab-wa" data-wa data-msg="Hi! I'd like to order PROTNUT Mixed Dry Fruits." aria-label="Order on WhatsApp">
   <svg class="icon" style="color:#fff"><use href="#ic-wa"/></svg>
 </a>
 
@@ -579,7 +580,7 @@
   const WHATSAPP_NUMBER = "91XXXXXXXXXX"; // TODO: replace with your real WhatsApp number
 
   document.querySelectorAll('[data-wa]').forEach(function(el){
-    var msg = el.getAttribute('data-msg') || "Hi! I'd like to order Trove Mixed Dry Fruits.";
+    var msg = el.getAttribute('data-msg') || "Hi! I'd like to order PROTNUT Mixed Dry Fruits.";
     el.href = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg);
     el.target = '_blank';
     el.rel = 'noopener';
