@@ -1,306 +1,1059 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>PROTNUT — We Enhance Natural Nutrition with Taste</title>
-<meta name="description" content="PROTNUT Mixed Dry Fruits — hand-sorted almonds, cashews, pistachios, walnuts, raisins and dates, roasted in small batches. We enhance natural nutrition with taste. Order on WhatsApp." />
+<title>PROTNUT — Natural Nutrition. Irresistible Crunch. Roasted Makhana</title>
+<meta name="description" content="PROTNUT brings together natural nutrition and irreversible taste. Handcrafted roasted makhana (foxnuts) in 5 signature flavors: Peri Peri, Black Pepper, Cheddar Cheese, Cream 'n' Onion, and Tangy Tomato. Order on WhatsApp or email Protnutindia@gmail.com." />
 
-<!-- ====================================================================
-  EDIT-ME GUIDE
-  1) WhatsApp number  -> search for WHATSAPP_NUMBER in the <script> below.
-  2) Prices & pack sizes -> search for "Snack Pack", "Family Pack", "Gift Box".
-  3) Contact details (phone/email/address) -> search for "CONTACT DETAILS".
-  4) Brand name "PROTNUT" -> find & replace if you want a different name.
-===================================================================== -->
-
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-  :root{
-    /* ---- Token system, drawn from the PROTNUT logo (leaf-green + gold) ---- */
-    --ivory:        #F5F8F0;   /* soft natural background */
-    --card:         #FFFFFF;
-    --maroon:       #2E7D32;   /* PROTNUT leaf green (primary) */
-    --maroon-dark:  #1B5E20;   /* deep forest green */
-    --gold:         #D4A017;   /* golden nut yellow */
-    --gold-light:   #F0C419;   /* bright gold */
-    --green:        #3E8E41;   /* fresh green accent */
-    --text:         #23331C;   /* deep green-brown text */
-    --text-soft:    #5B6B52;
-    --line:         rgba(30,60,25,0.12);
-    --shadow:       0 18px 40px -16px rgba(27,94,32,0.26);
-    --radius:       18px;
-    --maxw:         1180px;
+  :root {
+    /* ---- PROTNUT Brand Design Tokens ---- */
+    --ivory:        #F6F8F2;
+    --ivory-card:   #FFFFFF;
+    --forest:       #1D5726;   /* Deep signature green */
+    --forest-dark:  #143E1B;   /* Deep background green */
+    --forest-soft:  #2E7D32;   /* Vibrant plant green */
+    --gold:         #D99B16;   /* Roasted golden nut */
+    --gold-bright:  #F5BD23;   /* Bright gold highlight */
+    --gold-light:   #FBF3DB;   /* Soft warm background tint */
+    --text-dark:    #1D2A1A;
+    --text-muted:   #576850;
+    --line:         rgba(29, 87, 38, 0.12);
+    --shadow-sm:    0 6px 18px -6px rgba(20, 62, 27, 0.12);
+    --shadow-md:    0 18px 36px -12px rgba(20, 62, 27, 0.18);
+    --shadow-lg:    0 24px 52px -16px rgba(20, 62, 27, 0.24);
+    --radius-sm:    12px;
+    --radius-md:    20px;
+    --radius-lg:    28px;
+    --radius-pill:  9999px;
+    --maxw:         1200px;
   }
 
-  *{ box-sizing:border-box; }
-  html{ scroll-behavior:smooth; }
-  body{
-    margin:0;
-    background:var(--ivory);
-    color:var(--text);
-    font-family:'Inter',sans-serif;
-    -webkit-font-smoothing:antialiased;
-    line-height:1.6;
-  }
-  img,svg{ max-width:100%; display:block; }
-  a{ color:inherit; text-decoration:none; }
-  .icon{ width:100%; height:100%; }
-
-  h1,h2,h3{
-    font-family:'Fraunces',serif;
-    font-weight:600;
-    color:var(--maroon-dark);
-    margin:0 0 .4em;
-    letter-spacing:-0.01em;
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--ivory);
+    color: var(--text-dark);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+    overflow-x: hidden;
   }
 
-  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 28px; }
-  .eyebrow{
-    display:inline-flex; align-items:center; gap:8px;
-    font-size:.78rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
-    color:var(--gold); margin-bottom:14px;
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; }
+
+  h1, h2, h3, h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    color: var(--forest-dark);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
   }
-  .eyebrow::before{ content:""; width:18px; height:2px; background:var(--gold); display:inline-block; }
 
-  section{ padding:88px 0; }
-  @media (max-width:720px){ section{ padding:64px 0; } }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
 
-  .btn{
-    display:inline-flex; align-items:center; gap:10px;
-    padding:14px 26px; border-radius:999px; font-weight:600; font-size:.95rem;
-    cursor:pointer; border:1.5px solid transparent; transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+  /* Eyebrow badge */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
   }
-  .btn:hover{ transform:translateY(-2px); }
-  .btn-primary{ background:var(--maroon); color:#fff; box-shadow:var(--shadow); }
-  .btn-primary:hover{ background:var(--maroon-dark); }
-  .btn-ghost{ background:transparent; color:var(--maroon); border-color:var(--line); }
-  .btn-ghost:hover{ background:rgba(110,42,58,0.06); }
-  .btn-gold{ background:var(--gold); color:#fff; box-shadow:0 14px 28px -12px rgba(212,160,23,.55); }
-  .btn-gold:hover{ background:#B8891A; }
-  .btn svg{ width:18px; height:18px; flex:none; }
-  :focus-visible{ outline:2.5px solid var(--gold); outline-offset:3px; }
-
-  /* ---------- Header ---------- */
-  header{
-    position:sticky; top:0; z-index:50;
-    background:rgba(245,248,240,0.88); backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--line);
+  .eyebrow::before {
+    content: "";
+    width: 18px;
+    height: 2px;
+    background: var(--gold);
+    display: inline-block;
+    border-radius: 2px;
   }
-  .nav{ display:flex; align-items:center; justify-content:space-between; padding:16px 28px; }
-  .brand{ display:flex; align-items:center; gap:12px; font-family:'Fraunces',serif; font-weight:700; font-size:1.4rem; color:var(--maroon-dark); }
-  .brand .logo-img{ width:44px; height:44px; border-radius:50%; object-fit:cover; border:1.5px solid var(--gold-light); box-shadow:0 4px 12px -4px rgba(27,94,32,.35); }
-  .brand .mark{ width:34px; height:34px; border-radius:50%; background:var(--maroon); display:flex; align-items:center; justify-content:center; color:var(--gold-light); font-size:.85rem; font-weight:700; }
-  .navlinks{ display:flex; align-items:center; gap:30px; font-weight:500; font-size:.95rem; }
-  .navlinks a{ color:var(--text-soft); transition:color .15s; }
-  .navlinks a:hover{ color:var(--maroon); }
-  .nav-actions{ display:flex; align-items:center; gap:14px; }
-  .burger{ display:none; background:none; border:none; cursor:pointer; padding:6px; }
-  .burger span{ display:block; width:24px; height:2px; background:var(--maroon-dark); margin:5px 0; border-radius:2px; }
 
-  @media (max-width:900px){
-    .navlinks{ display:none; }
-    .burger{ display:block; }
-    .nav-actions .btn-ghost{ display:none; }
+  section { padding: 92px 0; position: relative; }
+  @media (max-width: 768px) { section { padding: 60px 0; } }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 26px;
+    border-radius: var(--radius-pill);
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    border: 1.5px solid transparent;
+    translate: 0 0;
+    scale: 1;
+    transition: translate 0.22s ease, scale 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
   }
-  @media (max-width:560px){
-    .nav-actions .btn-primary{ display:none; }
+  .btn:hover {
+    translate: 0 -2px;
+    scale: 1.02;
   }
-  .mobile-menu{
-    display:none; flex-direction:column; gap:2px; padding:0 28px 18px;
+  .btn-primary {
+    background: var(--forest);
+    color: #fff;
+    box-shadow: var(--shadow-sm);
   }
-  .mobile-menu.open{ display:flex; }
-  .mobile-menu a{ padding:12px 0; border-bottom:1px solid var(--line); color:var(--text); font-weight:500; }
-
-  /* ---------- Hero ---------- */
-  .hero{ padding:64px 0 40px; overflow:hidden; }
-  .hero .wrap{ display:grid; grid-template-columns:1.05fr .95fr; gap:50px; align-items:center; }
-  @media (max-width:920px){ .hero .wrap{ grid-template-columns:1fr; } .hero{ padding-top:36px; } }
-
-  .hero h1{ font-size:clamp(2.3rem, 4vw, 3.4rem); line-height:1.08; }
-  .hero p.lede{ font-size:1.1rem; color:var(--text-soft); max-width:480px; margin-bottom:30px; }
-  .hero-ctas{ display:flex; flex-wrap:wrap; gap:14px; margin-bottom:30px; }
-  .trust-line{ display:flex; align-items:center; gap:10px; font-size:.88rem; color:var(--text-soft); }
-  .trust-dots{ display:flex; }
-  .trust-dots span{ width:26px; height:26px; border-radius:50%; background:var(--gold-light); border:2px solid var(--ivory); margin-left:-8px; }
-  .trust-dots span:first-child{ margin-left:0; }
-
-  /* ---- the wreath signature ---- */
-  .treasure{ position:relative; width:380px; height:380px; margin:0 auto; }
-  .wreath-ring{ position:absolute; inset:0; animation:spin 70s linear infinite; }
-  @media (prefers-reduced-motion: reduce){ .wreath-ring{ animation:none; } }
-  @keyframes spin{ to{ transform:rotate(360deg); } }
-  .icon-item{
-    position:absolute; top:50%; left:50%; width:62px; height:62px; margin:-31px;
-    transform:rotate(var(--angle)) translate(155px) rotate(calc(-1 * var(--angle)));
-    filter:drop-shadow(0 8px 14px rgba(74,28,40,.18));
+  .btn-primary:hover {
+    background: var(--forest-dark);
+    box-shadow: var(--shadow-md);
   }
-  .treasure-center{
-    position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;
-    text-align:center; gap:2px;
+  .btn-gold {
+    background: var(--gold);
+    color: #fff;
+    box-shadow: 0 10px 24px -8px rgba(217, 155, 22, 0.45);
   }
-  .treasure-center .ring{
-    width:210px; height:210px; border-radius:50%; background:var(--card);
-    border:2px solid var(--gold-light);
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
-    box-shadow:var(--shadow); overflow:hidden; padding:6px;
+  .btn-gold:hover {
+    background: #bd840f;
+    box-shadow: 0 14px 28px -6px rgba(217, 155, 22, 0.55);
   }
-  .treasure-center .ring .logo-hero{ width:100%; height:100%; border-radius:50%; object-fit:cover; }
-  .treasure-center .ring .word{ font-family:'Fraunces',serif; font-weight:700; font-size:1.5rem; color:var(--maroon); letter-spacing:.02em; }
-  .treasure-center .ring .sub{ font-size:.66rem; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-top:4px; }
-  @media (max-width:920px){ .treasure{ width:300px; height:300px; margin-bottom:10px; } .icon-item{ transform:rotate(var(--angle)) translate(120px) rotate(calc(-1 * var(--angle))); width:50px; height:50px; margin:-25px;} .treasure-center .ring{ width:170px; height:170px; } }
-
-  /* ---------- What's inside ---------- */
-  .inside-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:44px; }
-  @media (max-width:880px){ .inside-grid{ grid-template-columns:repeat(2,1fr); } }
-  @media (max-width:560px){ .inside-grid{ grid-template-columns:1fr; } }
-  .ingredient{
-    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
-    padding:26px; display:flex; gap:16px; align-items:flex-start;
-    transition:transform .18s ease, box-shadow .18s ease;
+  .btn-ghost {
+    background: transparent;
+    color: var(--forest);
+    border-color: var(--line);
   }
-  .ingredient:hover{ transform:translateY(-4px); box-shadow:var(--shadow); }
-  .ingredient .badge{ width:54px; height:54px; flex:none; border-radius:50%; background:var(--ivory); padding:11px; }
-  .ingredient h3{ font-size:1.1rem; margin-bottom:2px; }
-  .ingredient .local{ font-size:.8rem; color:var(--gold); font-weight:600; display:block; margin-bottom:6px; }
-  .ingredient p{ margin:0; font-size:.92rem; color:var(--text-soft); }
-
-  /* ---------- Why PROTNUT (dark band) ---------- */
-  .why{ background:var(--maroon-dark); color:#E4EFDF; }
-  .why h2{ color:#fff; }
-  .why .eyebrow{ color:var(--gold-light); }
-  .why .eyebrow::before{ background:var(--gold-light); }
-  .why-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:28px; margin-top:46px; }
-  @media (max-width:900px){ .why-grid{ grid-template-columns:repeat(2,1fr); } }
-  @media (max-width:540px){ .why-grid{ grid-template-columns:1fr; } }
-  .why-item .num{ font-family:'Fraunces',serif; font-size:2rem; color:var(--gold-light); margin-bottom:10px; }
-  .why-item h3{ color:#fff; font-size:1.05rem; }
-  .why-item p{ color:#CADFC2; font-size:.92rem; margin:0; }
-
-  /* ---------- Packs / pricing ---------- */
-  .section-head{ max-width:620px; }
-  .section-head.center{ margin:0 auto; text-align:center; }
-  .packs-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; margin-top:48px; }
-  @media (max-width:900px){ .packs-grid{ grid-template-columns:1fr; max-width:420px; margin-inline:auto; } }
-  .pack{
-    background:var(--card); border:1px solid var(--line); border-radius:24px; padding:34px 28px;
-    display:flex; flex-direction:column; text-align:center; position:relative;
-    transition:transform .18s ease, box-shadow .18s ease;
+  .btn-ghost:hover {
+    background: rgba(29, 87, 38, 0.06);
+    border-color: var(--forest);
   }
-  .pack:hover{ transform:translateY(-6px); box-shadow:var(--shadow); }
-  .pack.popular{ border-color:var(--gold); }
-  .pack .tag{
-    position:absolute; top:-13px; left:50%; transform:translateX(-50%);
-    background:var(--gold); color:#fff; font-size:.72rem; font-weight:700; letter-spacing:.06em;
-    text-transform:uppercase; padding:5px 14px; border-radius:999px;
+  .btn-white {
+    background: #fff;
+    color: var(--forest-dark);
+    box-shadow: var(--shadow-md);
   }
-  .pack .size{ font-size:.85rem; color:var(--text-soft); font-weight:600; text-transform:uppercase; letter-spacing:.06em; }
-  .pack h3{ font-size:1.9rem; margin:6px 0 4px; }
-  .pack .price{ font-family:'Fraunces',serif; font-size:2.1rem; color:var(--maroon); margin:10px 0 4px; }
-  .pack .price span{ font-size:1rem; color:var(--text-soft); font-weight:400; }
-  .pack ul{ list-style:none; padding:0; margin:18px 0 26px; text-align:left; display:flex; flex-direction:column; gap:10px; }
-  .pack ul li{ font-size:.9rem; color:var(--text-soft); display:flex; gap:10px; align-items:flex-start; }
-  .pack ul li svg{ width:16px; height:16px; flex:none; margin-top:3px; color:var(--green); }
-  .pack .btn{ justify-content:center; margin-top:auto; width:100%; }
-
-  /* ---------- Testimonials ---------- */
-  .quotes-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:46px; }
-  @media (max-width:880px){ .quotes-grid{ grid-template-columns:1fr; max-width:480px; margin-inline:auto; } }
-  .quote{ background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:28px; }
-  .quote .stars{ color:var(--gold); font-size:.95rem; letter-spacing:2px; margin-bottom:14px; }
-  .quote p{ font-size:.96rem; color:var(--text); margin:0 0 16px; }
-  .quote .who{ font-weight:700; font-size:.9rem; color:var(--maroon-dark); }
-  .quote .where{ font-size:.8rem; color:var(--text-soft); }
-
-  /* ---------- Final CTA ---------- */
-  .final-cta{ background:var(--gold); color:#fff; text-align:center; border-radius:28px; padding:60px 32px; margin:0 28px; }
-  .final-cta-wrap{ max-width:var(--maxw); margin:0 auto; }
-  .final-cta h2{ color:#fff; }
-  .final-cta p{ color:rgba(255,255,255,.92); max-width:520px; margin:0 auto 26px; }
-  .final-cta .btn-primary{ background:var(--maroon-dark); }
-  .final-cta .btn-primary:hover{ background:#37151E; }
-
-  /* ---------- Footer ---------- */
-  footer{ background:var(--maroon-dark); color:#DCEAD5; margin-top:90px; }
-  .footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px; padding:64px 0 36px; }
-  @media (max-width:780px){ .footer-grid{ grid-template-columns:1fr; gap:34px; } }
-  footer h4{ color:#fff; font-size:.85rem; letter-spacing:.1em; text-transform:uppercase; margin:0 0 16px; }
-  footer .brand{ color:#fff; margin-bottom:14px; }
-  footer .brand .mark{ background:var(--gold); color:var(--maroon-dark); }
-  footer p.tag{ color:#AFC6A5; font-size:.92rem; max-width:300px; }
-  footer ul{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px; }
-  footer ul a{ color:#CADFC2; font-size:.92rem; }
-  footer ul a:hover{ color:#fff; }
-  footer .contact-item{ display:flex; gap:10px; align-items:flex-start; color:#CADFC2; font-size:.92rem; margin-bottom:12px; }
-  footer .contact-item svg{ width:17px; height:17px; flex:none; margin-top:3px; color:var(--gold-light); }
-  .footer-bottom{ border-top:1px solid rgba(255,255,255,.12); padding:22px 0; font-size:.82rem; color:#9DB593; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; }
-
-  /* ---------- Floating WhatsApp button ---------- */
-  .fab-wa{
-    position:fixed; bottom:24px; right:24px; z-index:60;
-    width:60px; height:60px; border-radius:50%; background:#25D366;
-    display:flex; align-items:center; justify-content:center;
-    box-shadow:0 14px 30px -8px rgba(0,0,0,.35);
-    transition:transform .18s ease;
+  .btn-white:hover {
+    background: #FAF8F2;
+    color: var(--forest);
   }
-  .fab-wa:hover{ transform:scale(1.08); }
-  .fab-wa svg{ width:30px; height:30px; }
+  .btn-sm {
+    padding: 10px 18px;
+    font-size: 0.86rem;
+  }
+  .btn svg { width: 18px; height: 18px; flex: none; }
 
-  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
-  .reveal.in{ opacity:1; transform:none; }
-  @media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; transition:none; } }
+  /* Header */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 90;
+    background: rgba(246, 248, 242, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 28px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 1.45rem;
+    color: var(--forest-dark);
+  }
+  .brand .logo-img {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--gold-bright);
+    box-shadow: 0 4px 12px -4px rgba(20, 62, 27, 0.35);
+  }
+  .navlinks {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    font-weight: 600;
+    font-size: 0.94rem;
+  }
+  .navlinks a {
+    color: var(--text-muted);
+    transition: color 0.18s ease;
+    position: relative;
+  }
+  .navlinks a:hover {
+    color: var(--forest);
+  }
+  .navlinks a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--gold);
+    transition: width 0.2s ease;
+    border-radius: 2px;
+  }
+  .navlinks a:hover::after {
+    width: 100%;
+  }
+
+  .nav-actions { display: flex; align-items: center; gap: 14px; }
+  .burger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
+  .burger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--forest-dark);
+    margin: 5px 0;
+    border-radius: 2px;
+    transition: transform 0.2s ease;
+  }
+
+  @media (max-width: 960px) {
+    .navlinks { display: none; }
+    .burger { display: block; }
+    .nav-actions .btn-ghost { display: none; }
+  }
+  @media (max-width: 580px) {
+    .nav-actions .btn-primary { display: none; }
+  }
+
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    padding: 12px 28px 24px;
+    background: var(--ivory);
+    border-bottom: 1px solid var(--line);
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    padding: 12px 0;
+    font-weight: 600;
+    color: var(--text-dark);
+    border-bottom: 1px solid rgba(29, 87, 38, 0.08);
+  }
+
+  /* ====================================================
+     HERO SECTION
+     ==================================================== */
+  .hero {
+    padding: 56px 0 64px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -120px;
+    right: -80px;
+    width: 520px;
+    height: 520px;
+    background: radial-gradient(circle, rgba(245, 189, 35, 0.18) 0%, rgba(246, 248, 242, 0) 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px;
+    left: -100px;
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(circle, rgba(46, 125, 50, 0.12) 0%, rgba(246, 248, 242, 0) 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.95fr;
+    gap: 52px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  @media (max-width: 960px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero { padding: 40px 0; }
+  }
+
+  .hero h1 {
+    font-size: clamp(2.4rem, 4.4vw, 3.8rem);
+    margin-bottom: 18px;
+  }
+  .hero h1 span.highlight {
+    color: var(--forest);
+    font-style: italic;
+    font-weight: 600;
+  }
+  .hero p.lede {
+    font-size: 1.12rem;
+    color: var(--text-muted);
+    max-width: 540px;
+    margin-bottom: 30px;
+    line-height: 1.65;
+  }
+  .hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 34px;
+  }
+
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .hero-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(29, 87, 38, 0.07);
+    color: var(--forest-dark);
+    padding: 7px 14px;
+    border-radius: var(--radius-pill);
+    font-size: 0.82rem;
+    font-weight: 600;
+    border: 1px solid rgba(29, 87, 38, 0.14);
+  }
+  .hero-pill svg { width: 14px; height: 14px; color: var(--gold); }
+
+  /* Hero Showcase Card */
+  .hero-card-container {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .hero-main-card {
+    background: var(--ivory-card);
+    border-radius: var(--radius-lg);
+    border: 2px solid rgba(217, 155, 22, 0.3);
+    padding: 16px;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-main-card img.hero-img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    border-radius: calc(var(--radius-lg) - 10px);
+    transition: scale 0.5s ease;
+    scale: 1;
+  }
+  .hero-main-card:hover img.hero-img {
+    scale: 1.04;
+  }
+  .hero-card-tag {
+    position: absolute;
+    bottom: 28px;
+    left: 28px;
+    right: 28px;
+    background: rgba(20, 62, 27, 0.88);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: var(--radius-md);
+    padding: 14px 20px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgba(245, 189, 35, 0.35);
+  }
+  .hero-card-tag .title {
+    font-family: 'Fraunces', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+  }
+  .hero-card-tag .sub {
+    font-size: 0.78rem;
+    color: var(--gold-bright);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* Floating decorative chips around hero */
+  .floating-chip {
+    position: absolute;
+    background: var(--ivory-card);
+    border: 1.5px solid var(--gold);
+    box-shadow: var(--shadow-md);
+    padding: 8px 16px;
+    border-radius: var(--radius-pill);
+    font-weight: 700;
+    font-size: 0.82rem;
+    color: var(--forest-dark);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 3;
+    pointer-events: none;
+    translate: 0 0;
+    animation: ambientFloat 4.2s infinite ease-in-out;
+  }
+  .floating-chip.top-left {
+    top: -12px;
+    left: -20px;
+    animation-delay: 0s;
+  }
+  .floating-chip.bottom-right {
+    bottom: -16px;
+    right: -15px;
+    animation-delay: 2.1s;
+  }
+  @keyframes ambientFloat {
+    0%, 100% { translate: 0 0; }
+    50% { translate: 0 -10px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .floating-chip { animation: none; }
+  }
+
+  /* ====================================================
+     FLAVORS SHOWCASE SECTION
+     ==================================================== */
+  .section-head {
+    max-width: 680px;
+    margin-bottom: 50px;
+  }
+  .section-head.center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .section-head h2 {
+    font-size: clamp(2rem, 3.4vw, 2.8rem);
+    margin-bottom: 12px;
+  }
+  .section-head p {
+    color: var(--text-muted);
+    font-size: 1.02rem;
+  }
+
+  .flavors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+  }
+  @media (max-width: 680px) {
+    .flavors-grid { grid-template-columns: 1fr; }
+  }
+
+  .flavor-card {
+    background: var(--ivory-card);
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+    translate: 0 0;
+    scale: 1;
+    transition: translate 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.28s ease;
+    position: relative;
+  }
+  .flavor-card:hover {
+    translate: 0 -8px;
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(217, 155, 22, 0.4);
+  }
+
+  .flavor-card-media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: #EDEFE8;
+  }
+  .flavor-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    scale: 1;
+    transition: scale 0.45s ease;
+  }
+  .flavor-card:hover .flavor-card-media img {
+    scale: 1.07;
+  }
+
+  .flavor-badge-pill {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: rgba(20, 62, 27, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .flavor-card-body {
+    padding: 26px 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  .flavor-card-body h3 {
+    font-size: 1.45rem;
+    margin-bottom: 6px;
+    color: var(--forest-dark);
+  }
+  .flavor-tagline {
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+    display: block;
+  }
+  .flavor-desc {
+    color: var(--text-muted);
+    font-size: 0.94rem;
+    margin-bottom: 18px;
+    line-height: 1.55;
+  }
+
+  .ingredients-box {
+    background: rgba(246, 248, 242, 0.8);
+    border: 1px dashed rgba(29, 87, 38, 0.2);
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+    margin-bottom: 22px;
+  }
+  .ingredients-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    color: var(--forest);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 8px;
+  }
+  .ingredients-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .ingredient-tag {
+    background: #fff;
+    border: 1px solid rgba(29, 87, 38, 0.12);
+    padding: 3px 9px;
+    border-radius: var(--radius-pill);
+    font-size: 0.78rem;
+    color: var(--text-dark);
+    font-weight: 500;
+  }
+
+  .flavor-card-footer {
+    margin-top: auto;
+    padding-top: 10px;
+  }
+  .flavor-card-footer .btn {
+    width: 100%;
+  }
+
+  /* ====================================================
+     BRAND STORY SECTION
+     ==================================================== */
+  .story-section {
+    background: var(--forest-dark);
+    color: #E6EFE4;
+    position: relative;
+    overflow: hidden;
+  }
+  .story-section::before {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    top: -100px;
+    left: -100px;
+    background: radial-gradient(circle, rgba(217, 155, 22, 0.15) 0%, rgba(20, 62, 27, 0) 70%);
+    pointer-events: none;
+  }
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 56px;
+    align-items: center;
+  }
+  @media (max-width: 920px) {
+    .story-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  .story-content h2 {
+    color: #fff;
+    font-size: clamp(2.1rem, 3.6vw, 3rem);
+    margin-bottom: 18px;
+  }
+  .story-quote {
+    font-family: 'Fraunces', serif;
+    font-size: 1.28rem;
+    color: var(--gold-bright);
+    font-style: italic;
+    margin-bottom: 24px;
+    line-height: 1.45;
+    border-left: 3px solid var(--gold);
+    padding-left: 18px;
+  }
+  .story-body {
+    font-size: 1.05rem;
+    color: #CFDFC9;
+    margin-bottom: 22px;
+    line-height: 1.7;
+  }
+  .story-highlights {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-top: 32px;
+  }
+  @media (max-width: 540px) {
+    .story-highlights { grid-template-columns: 1fr; }
+  }
+  .story-highlight-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-sm);
+    padding: 18px;
+  }
+  .story-highlight-card h4 {
+    color: var(--gold-bright);
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+  }
+  .story-highlight-card p {
+    font-size: 0.88rem;
+    color: #B5C9AF;
+    margin: 0;
+  }
+
+  .story-visual-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(217, 155, 22, 0.35);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    text-align: center;
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35);
+  }
+  .story-visual-card .logo-big {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    object-fit: cover;
+    border: 3px solid var(--gold-bright);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+  }
+  .story-visual-card h3 {
+    color: #fff;
+    font-size: 1.7rem;
+    margin-bottom: 8px;
+  }
+  .story-visual-card p.motto {
+    color: var(--gold-bright);
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    margin-bottom: 24px;
+  }
+  .story-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .metric-box {
+    background: rgba(0, 0, 0, 0.25);
+    padding: 14px 10px;
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .metric-box .number {
+    font-family: 'Fraunces', serif;
+    font-size: 1.6rem;
+    color: var(--gold-bright);
+    font-weight: 700;
+  }
+  .metric-box .label {
+    font-size: 0.76rem;
+    color: #CADFC2;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* ====================================================
+     NUTRITION & BENEFITS
+     ==================================================== */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+  @media (max-width: 960px) {
+    .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 520px) {
+    .benefits-grid { grid-template-columns: 1fr; }
+  }
+
+  .benefit-card {
+    background: var(--ivory-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 28px 24px;
+    box-shadow: var(--shadow-sm);
+    translate: 0 0;
+    transition: translate 0.2s ease, box-shadow 0.2s ease;
+  }
+  .benefit-card:hover {
+    translate: 0 -4px;
+    box-shadow: var(--shadow-md);
+  }
+  .benefit-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: var(--gold-light);
+    color: var(--forest);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin-bottom: 18px;
+  }
+  .benefit-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+  .benefit-card p {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+  }
+
+  /* ====================================================
+     PACKS & COMBOS
+     ==================================================== */
+  .packs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 48px;
+  }
+  @media (max-width: 960px) {
+    .packs-grid { grid-template-columns: 1fr; max-width: 480px; margin-inline: auto; }
+  }
+
+  .pack-card {
+    background: var(--ivory-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 38px 28px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    box-shadow: var(--shadow-sm);
+    translate: 0 0;
+    transition: translate 0.24s ease, box-shadow 0.24s ease;
+  }
+  .pack-card:hover {
+    translate: 0 -6px;
+    box-shadow: var(--shadow-lg);
+  }
+  .pack-card.popular {
+    border: 2px solid var(--gold);
+    box-shadow: var(--shadow-md);
+  }
+  .pack-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gold);
+    color: #fff;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: var(--radius-pill);
+    box-shadow: 0 4px 12px rgba(217, 155, 22, 0.4);
+  }
+
+  .pack-card .pack-sub {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .pack-card h3 {
+    font-size: 1.8rem;
+    margin: 8px 0 6px;
+  }
+  .pack-card .pack-price {
+    font-family: 'Fraunces', serif;
+    font-size: 2.2rem;
+    color: var(--forest);
+    font-weight: 700;
+    margin: 10px 0;
+  }
+  .pack-card .pack-price span {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 400;
+  }
+
+  .pack-card ul {
+    list-style: none;
+    text-align: left;
+    margin: 20px 0 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .pack-card ul li {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .pack-card ul li svg {
+    width: 17px;
+    height: 17px;
+    color: var(--forest-soft);
+    flex: none;
+    margin-top: 2px;
+  }
+  .pack-card .btn {
+    margin-top: auto;
+    width: 100%;
+  }
+
+  /* ====================================================
+     CALL TO ACTION BANNER
+     ==================================================== */
+  .cta-banner {
+    background: linear-gradient(135deg, var(--forest) 0%, var(--forest-dark) 100%);
+    color: #fff;
+    border-radius: var(--radius-lg);
+    padding: 64px 36px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(245, 189, 35, 0.3);
+  }
+  .cta-banner h2 {
+    color: #fff;
+    font-size: clamp(2rem, 3.6vw, 2.8rem);
+    margin-bottom: 14px;
+  }
+  .cta-banner p {
+    color: #E2ECE0;
+    font-size: 1.1rem;
+    max-width: 580px;
+    margin: 0 auto 28px;
+  }
+  .cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  /* ====================================================
+     FOOTER
+     ==================================================== */
+  footer {
+    background: var(--forest-dark);
+    color: #D3E2CF;
+    padding-top: 80px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 0.9fr 1.1fr;
+    gap: 48px;
+    padding-bottom: 48px;
+  }
+  @media (max-width: 820px) {
+    .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+  }
+
+  footer .brand { color: #fff; margin-bottom: 16px; }
+  footer p.brand-about {
+    font-size: 0.92rem;
+    color: #A9BFA3;
+    line-height: 1.65;
+    max-width: 360px;
+  }
+  footer h4 {
+    color: #fff;
+    font-size: 0.88rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  footer ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  footer ul a {
+    color: #CADFC2;
+    font-size: 0.92rem;
+    transition: color 0.18s;
+  }
+  footer ul a:hover { color: #fff; }
+
+  .footer-contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.92rem;
+    color: #CADFC2;
+    margin-bottom: 14px;
+  }
+  .footer-contact-item svg {
+    width: 18px;
+    height: 18px;
+    color: var(--gold-bright);
+    flex: none;
+    margin-top: 3px;
+  }
+  .footer-contact-item a {
+    color: #CADFC2;
+    transition: color 0.18s;
+  }
+  .footer-contact-item a:hover {
+    color: #fff;
+    text-decoration: underline;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 24px 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.84rem;
+    color: #92AA89;
+  }
+
+  /* Floating WhatsApp FAB */
+  .fab-wa {
+    position: fixed;
+    bottom: 26px;
+    right: 26px;
+    z-index: 99;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #25D366;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 14px 28px -6px rgba(0, 0, 0, 0.38);
+    translate: 0 0;
+    scale: 1;
+    transition: scale 0.2s ease, translate 0.2s ease;
+  }
+  .fab-wa:hover {
+    scale: 1.1;
+    translate: 0 -3px;
+  }
+  .fab-wa svg { width: 32px; height: 32px; }
+
+  /* Scroll Reveal animation */
+  .reveal {
+    opacity: 0;
+    translate: 0 20px;
+    transition: opacity 0.6s ease, translate 0.6s ease;
+  }
+  .reveal.in {
+    opacity: 1;
+    translate: 0 0;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; translate: 0 0; transition: none; }
+  }
 </style>
 </head>
 <body>
 
-<!-- ============ ICON SPRITE (decorative, reused across the page) ============ -->
+<!-- SVG Icons Sprite -->
 <svg style="display:none" aria-hidden="true">
-  <symbol id="ic-almond" viewBox="0 0 64 64">
-    <path d="M32 4C44 4 54 19 54 33C54 49 44 60 32 60C20 60 10 49 10 33C10 19 20 4 32 4Z" fill="#E3B45F"/>
-    <path d="M32 14C32 14 25 24 25 34C25 44 32 50 32 50" stroke="#A8762E" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <symbol id="ic-wa" viewBox="0 0 32 32">
+    <path fill="currentColor" d="M16 3C9 3 3.3 8.7 3.3 15.7c0 2.6.8 5.1 2.2 7.2L4 29l6.3-1.6c2 .9 4.3 1.4 6.6 1.4 7 0 12.7-5.7 12.7-12.7C29.6 8.7 23.9 3 16 3zm0 23.1c-2 0-4-.5-5.7-1.5l-.4-.2-4.2 1.1 1.1-4.1-.3-.4c-1.1-1.8-1.7-3.8-1.7-5.9 0-5.9 4.8-10.6 10.7-10.6 5.9 0 10.6 4.8 10.6 10.6S21.9 26.1 16 26.1zm5.9-7.9c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.1-.2.3-.8 1.1-1 1.3-.2.2-.4.3-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-2-1.8-2.3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.1-.6-.1-.2-.7-1.6-.9-2.2-.2-.5-.4-.5-.6-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.2.2 2 3.1 4.9 4.2 2.9 1.1 2.9.8 3.4.7.5-.1 1.6-.7 1.8-1.3.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.6-.4z"/>
   </symbol>
-  <symbol id="ic-cashew" viewBox="0 0 64 64">
-    <path d="M16 40C7 33 9 17 21 10C30 4 41 8 43 18C45 26 38 29 37 36C36 42 43 46 40 53C36 60 24 58 20 50C18 46 21 44 16 40Z" fill="#F3E3C2" stroke="#D8B978" stroke-width="1.6"/>
+  <symbol id="ic-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+    <path d="M3 7l9 6 9-6M5 5h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/>
   </symbol>
-  <symbol id="ic-pistachio" viewBox="0 0 64 64">
-    <path d="M32 6C44 6 50 18 50 30C50 44 42 56 32 58C22 56 14 44 14 30C14 18 20 6 32 6Z" fill="#8FA563"/>
-    <path d="M32 11C39 12 44 21 44 30C44 40 39 49 32 52C29 49 27 41 27 33C27 24 29 14 32 11Z" fill="#F3E3C2"/>
+  <symbol id="ic-check" viewBox="0 0 24 24">
+    <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
   </symbol>
-  <symbol id="ic-walnut" viewBox="0 0 64 64">
-    <circle cx="32" cy="32" r="26" fill="#B98A55"/>
-    <path d="M32 10C26 16 36 20 28 26C38 30 24 34 34 40C26 44 36 48 30 54" stroke="#7A5733" stroke-width="2" fill="none" stroke-linecap="round"/>
-    <path d="M20 22C24 26 22 32 18 34" stroke="#7A5733" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+  <symbol id="ic-sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
   </symbol>
-  <symbol id="ic-raisin" viewBox="0 0 64 64">
-    <circle cx="23" cy="25" r="12" fill="#5B2A3A"/>
-    <circle cx="39" cy="31" r="10.5" fill="#6E2A3A"/>
-    <circle cx="28" cy="42" r="9.5" fill="#4A2230"/>
-  </symbol>
-  <symbol id="ic-date" viewBox="0 0 64 64">
-    <path d="M17 32C17 18 24 8 32 8C40 8 47 18 47 32C47 46 40 56 32 56C24 56 17 46 17 32Z" fill="#6E3B23"/>
-    <path d="M22 24C26 24 38 24 42 24M20 32C26 32 38 32 44 32M22 40C26 40 38 40 42 40" stroke="#4A2614" stroke-width="1.6" stroke-linecap="round"/>
-  </symbol>
-  <symbol id="ic-check" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-  <symbol id="ic-wa" viewBox="0 0 32 32"><path fill="currentColor" d="M16 3C9 3 3.3 8.7 3.3 15.7c0 2.6.8 5.1 2.2 7.2L4 29l6.3-1.6c2 .9 4.3 1.4 6.6 1.4 7 0 12.7-5.7 12.7-12.7C29.6 8.7 23.9 3 16 3zm0 23.1c-2 0-4-.5-5.7-1.5l-.4-.2-4.2 1.1 1.1-4.1-.3-.4c-1.1-1.8-1.7-3.8-1.7-5.9 0-5.9 4.8-10.6 10.7-10.6 5.9 0 10.6 4.8 10.6 10.6S21.9 26.1 16 26.1zm5.9-7.9c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.1-.2.3-.8 1.1-1 1.3-.2.2-.4.3-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-2-1.8-2.3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.1-.6-.1-.2-.7-1.6-.9-2.2-.2-.5-.4-.5-.6-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.2.2 2 3.1 4.9 4.2 2.9 1.1 2.9.8 3.4.7.5-.1 1.6-.7 1.8-1.3.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.6-.4z"/></symbol>
 </svg>
 
+<!-- Header -->
 <header>
   <div class="nav wrap">
-    <a href="#top" class="brand"><img class="logo-img" src="IMG-20260905-WA0005.jpg" alt="PROTNUT logo">PROTNUT</a>
+    <a href="#top" class="brand">
+      <img class="logo-img" src="IMG-20260905-WA0005.jpg" alt="PROTNUT logo">
+      <span>PROTNUT</span>
+    </a>
     <nav class="navlinks">
-      <a href="#inside">What's Inside</a>
-      <a href="#why">Why PROTNUT</a>
-      <a href="#packs">Packs</a>
-      <a href="#reviews">Reviews</a>
+      <a href="#flavors">Our Flavors</a>
+      <a href="#story">Brand Story</a>
+      <a href="#nutrition">Why Makhana</a>
+      <a href="#packs">Packs & Combos</a>
       <a href="#contact">Contact</a>
     </nav>
     <div class="nav-actions">
-      <a href="#packs" class="btn btn-ghost">See Packs</a>
-      <a class="btn btn-primary" data-wa data-msg="Hi! I'd like to order PROTNUT Mixed Dry Fruits.">
-        <svg class="icon" style="width:18px;height:18px"><use href="#ic-wa"/></svg>
+      <a href="#flavors" class="btn btn-ghost btn-sm">Explore Flavors</a>
+      <a class="btn btn-primary btn-sm" data-wa data-msg="Hi! I'd like to order PROTNUT Makhana.">
+        <svg class="icon"><use href="#ic-wa"/></svg>
         Order on WhatsApp
       </a>
       <button class="burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false">
@@ -309,13 +1062,13 @@
     </div>
   </div>
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#inside">What's Inside</a>
-    <a href="#why">Why PROTNUT</a>
-    <a href="#packs">Packs</a>
-    <a href="#reviews">Reviews</a>
+    <a href="#flavors">Our Flavors</a>
+    <a href="#story">Brand Story</a>
+    <a href="#nutrition">Why Makhana</a>
+    <a href="#packs">Packs & Combos</a>
     <a href="#contact">Contact</a>
-    <a class="btn btn-primary" style="margin-top:14px; justify-content:center;" data-wa data-msg="Hi! I'd like to order PROTNUT Mixed Dry Fruits.">
-      <svg class="icon" style="width:18px;height:18px"><use href="#ic-wa"/></svg>
+    <a class="btn btn-primary" style="margin-top:14px;" data-wa data-msg="Hi! I'd like to order PROTNUT Makhana.">
+      <svg class="icon"><use href="#ic-wa"/></svg>
       Order on WhatsApp
     </a>
   </div>
@@ -323,205 +1076,447 @@
 
 <main id="top">
 
-  <!-- ===================== HERO ===================== -->
+  <!-- ===================== HERO SECTION ===================== -->
   <section class="hero">
     <div class="wrap">
-      <div>
-        <span class="eyebrow">Premium mixed dry fruits</span>
-        <h1>We enhance natural<br>nutrition with&nbsp;taste.</h1>
-        <p class="lede">Almonds, cashews, pistachios, walnuts, raisins and dates — hand-sorted, small-batch roasted, and mixed in exact proportion. No added sugar, no shortcuts.</p>
-        <div class="hero-ctas">
-          <a class="btn btn-primary" data-wa data-msg="Hi! I'd like to order PROTNUT Mixed Dry Fruits.">
-            <svg class="icon" style="width:18px;height:18px"><use href="#ic-wa"/></svg>
-            Order on WhatsApp
-          </a>
-          <a href="#inside" class="btn btn-ghost">See what's inside</a>
-        </div>
-        <div class="trust-line">
-          <span class="trust-dots"><span></span><span></span><span></span><span></span></span>
-          Packed fresh, shipped in sealed pouches — every single order.
-        </div>
-      </div>
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">Natural Nutrition • Irreversible Taste</span>
+          <h1>Snack light. Crunch bold.<br><span class="highlight">Seasoned to perfection.</span></h1>
+          <p class="lede">
+            PROTNUT brings together natural nutrition and irreversible taste. Our makhana is crafted to deliver a light, crunchy, and flavourful snacking experience—thoughtfully seasoned for those who believe better snacking should never compromise on taste.
+          </p>
 
-      <div class="treasure">
-        <div class="wreath-ring">
-          <div class="icon-item" style="--angle:0deg"><svg class="icon"><use href="#ic-almond"/></svg></div>
-          <div class="icon-item" style="--angle:51deg"><svg class="icon"><use href="#ic-cashew"/></svg></div>
-          <div class="icon-item" style="--angle:103deg"><svg class="icon"><use href="#ic-pistachio"/></svg></div>
-          <div class="icon-item" style="--angle:154deg"><svg class="icon"><use href="#ic-walnut"/></svg></div>
-          <div class="icon-item" style="--angle:206deg"><svg class="icon"><use href="#ic-date"/></svg></div>
-          <div class="icon-item" style="--angle:257deg"><svg class="icon"><use href="#ic-raisin"/></svg></div>
-          <div class="icon-item" style="--angle:309deg"><svg class="icon"><use href="#ic-almond"/></svg></div>
+          <div class="hero-ctas">
+            <a href="#flavors" class="btn btn-primary">
+              Discover 5 Signature Flavors
+            </a>
+            <a class="btn btn-ghost" data-wa data-msg="Hi! I'd like to know more about PROTNUT Makhana packs.">
+              <svg class="icon"><use href="#ic-wa"/></svg>
+              Chat on WhatsApp
+            </a>
+          </div>
+
+          <div class="hero-badges">
+            <span class="hero-pill"><svg><use href="#ic-sparkle"/></svg> Roasted in Sunflower Oil</span>
+            <span class="hero-pill"><svg><use href="#ic-sparkle"/></svg> Never Fried</span>
+            <span class="hero-pill"><svg><use href="#ic-sparkle"/></svg> 100% Gluten-Free</span>
+            <span class="hero-pill"><svg><use href="#ic-sparkle"/></svg> High Protein Foxnuts</span>
+          </div>
         </div>
-        <div class="treasure-center">
-          <div class="ring">
-            <img class="logo-hero" src="IMG-20260905-WA0005.jpg" alt="PROTNUT — We Enhance Natural Nutrition with Taste">
+
+        <div class="hero-card-container">
+          <div class="floating-chip top-left">
+            <span>🔥 Peri Peri & Cheddar</span>
+          </div>
+          <div class="floating-chip bottom-right">
+            <span>✨ 100% Roasted Makhana</span>
+          </div>
+
+          <div class="hero-main-card">
+            <img class="hero-img" src="images/hero-spread.jpg" alt="PROTNUT Roasted Makhana Flavors Spread">
+            <div class="hero-card-tag">
+              <div>
+                <div class="title">PROTNUT Roasted Foxnuts</div>
+                <div class="sub">5 Irresistible Flavors</div>
+              </div>
+              <a href="#flavors" class="btn btn-gold btn-sm">View Menu</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===================== WHAT'S INSIDE ===================== -->
-  <section id="inside">
+  <!-- ===================== FLAVORS SHOWCASE ===================== -->
+  <section id="flavors">
     <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">The mix</span>
-        <h2>Six kinds. One handful.</h2>
-        <p style="color:var(--text-soft); max-width:520px;">Every pack carries the same ratio, batch after batch — so the handful you loved last time is the handful you'll get this time.</p>
+      <div class="section-head center reveal">
+        <span class="eyebrow">Our 5 Signature Flavors</span>
+        <h2>Crafted for Irreversible Taste</h2>
+        <p>
+          Every kernel is slow-roasted in pure sunflower oil and seasoned with premium spices for an unforgettable light, crunchy snacking experience.
+        </p>
       </div>
 
-      <div class="inside-grid">
-        <div class="ingredient reveal">
-          <div class="badge"><svg class="icon"><use href="#ic-almond"/></svg></div>
-          <div><h3>Almonds</h3><span class="local">Badam</span><p>Crunchy and mild, lightly roasted to keep the bite.</p></div>
+      <div class="flavors-grid">
+
+        <!-- 1. Peri Peri -->
+        <div class="flavor-card reveal">
+          <div class="flavor-card-media">
+            <img src="images/peri-peri.jpg" alt="PROTNUT Peri Peri Makhana" loading="lazy">
+            <span class="flavor-badge-pill">🌶️ Fiery & Tangy</span>
+          </div>
+          <div class="flavor-card-body">
+            <span class="flavor-tagline">Bold Chili Punch</span>
+            <h3>Peri Peri Makhana</h3>
+            <p class="flavor-desc">
+              A zesty, fiery peri peri chili rub with aromatic herbs that ignites your tastebuds with bold crunch in every single bite.
+            </p>
+            <div class="ingredients-box">
+              <div class="ingredients-label">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+                Ingredients
+              </div>
+              <div class="ingredients-list">
+                <span class="ingredient-tag">Foxnuts (Makhana)</span>
+                <span class="ingredient-tag">Peri peri seasoning</span>
+                <span class="ingredient-tag">Edible oil (sunflower oil)</span>
+                <span class="ingredient-tag">Salt</span>
+              </div>
+            </div>
+            <div class="flavor-card-footer">
+              <a class="btn btn-primary" data-wa data-msg="Hi! I'd like to order PROTNUT Peri Peri Makhana.">
+                <svg class="icon"><use href="#ic-wa"/></svg>
+                Order Peri Peri
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="ingredient reveal">
-          <div class="badge"><svg class="icon"><use href="#ic-cashew"/></svg></div>
-          <div><h3>Cashews</h3><span class="local">Kaju</span><p>Whole, buttery kernels — sorted to remove broken pieces.</p></div>
+
+        <!-- 2. Black Pepper -->
+        <div class="flavor-card reveal">
+          <div class="flavor-card-media">
+            <img src="images/black-pepper.jpg" alt="PROTNUT Black Pepper Makhana" loading="lazy">
+            <span class="flavor-badge-pill">🖤 Warm & Pungent</span>
+          </div>
+          <div class="flavor-card-body">
+            <span class="flavor-tagline">Cracked Peppercorn Crunch</span>
+            <h3>Black Pepper Makhana</h3>
+            <p class="flavor-desc">
+              Freshly ground coarse black peppercorns paired with mineral salt for a warm, savory, and sophisticated aromatic kick.
+            </p>
+            <div class="ingredients-box">
+              <div class="ingredients-label">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+                Ingredients
+              </div>
+              <div class="ingredients-list">
+                <span class="ingredient-tag">Foxnuts (Makhana)</span>
+                <span class="ingredient-tag">Black pepper seasoning</span>
+                <span class="ingredient-tag">Edible oil (sunflower oil)</span>
+                <span class="ingredient-tag">Salt</span>
+              </div>
+            </div>
+            <div class="flavor-card-footer">
+              <a class="btn btn-primary" data-wa data-msg="Hi! I'd like to order PROTNUT Black Pepper Makhana.">
+                <svg class="icon"><use href="#ic-wa"/></svg>
+                Order Black Pepper
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="ingredient reveal">
-          <div class="badge"><svg class="icon"><use href="#ic-pistachio"/></svg></div>
-          <div><h3>Pistachios</h3><span class="local">Pista</span><p>Sea-salt roasted, split shells for an easy snack.</p></div>
+
+        <!-- 3. Cheddar Cheese -->
+        <div class="flavor-card reveal">
+          <div class="flavor-card-media">
+            <img src="images/cheddar-cheese.jpg" alt="PROTNUT Cheddar Cheese Makhana" loading="lazy">
+            <span class="flavor-badge-pill">🧀 Rich & Savory</span>
+          </div>
+          <div class="flavor-card-body">
+            <span class="flavor-tagline">Melt-in-Mouth Indulgence</span>
+            <h3>Cheddar Cheese Makhana</h3>
+            <p class="flavor-desc">
+              A rich, creamy golden cheddar cheese dusting that delivers pure savory comfort without heavy guilt or greasy residues.
+            </p>
+            <div class="ingredients-box">
+              <div class="ingredients-label">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+                Ingredients
+              </div>
+              <div class="ingredients-list">
+                <span class="ingredient-tag">Foxnuts (Makhana)</span>
+                <span class="ingredient-tag">Cheddar cheese seasoning</span>
+                <span class="ingredient-tag">Edible oil (sunflower oil)</span>
+                <span class="ingredient-tag">Salt</span>
+              </div>
+            </div>
+            <div class="flavor-card-footer">
+              <a class="btn btn-primary" data-wa data-msg="Hi! I'd like to order PROTNUT Cheddar Cheese Makhana.">
+                <svg class="icon"><use href="#ic-wa"/></svg>
+                Order Cheddar Cheese
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="ingredient reveal">
-          <div class="badge"><svg class="icon"><use href="#ic-walnut"/></svg></div>
-          <div><h3>Walnuts</h3><span class="local">Akhrot</span><p>Halves and quarters, picked for freshness over size.</p></div>
+
+        <!-- 4. Cream 'n' Onion -->
+        <div class="flavor-card reveal">
+          <div class="flavor-card-media">
+            <img src="images/cream-onion.jpg" alt="PROTNUT Cream 'n' Onion Makhana" loading="lazy">
+            <span class="flavor-badge-pill">🌿 Velvety & Herby</span>
+          </div>
+          <div class="flavor-card-body">
+            <span class="flavor-tagline">The Classic Crowd-Pleaser</span>
+            <h3>Cream 'n' Onion Makhana</h3>
+            <p class="flavor-desc">
+              Smooth, tangy sour cream delicately balanced with sweet spring green onions and garden herbs on feather-light foxnuts.
+            </p>
+            <div class="ingredients-box">
+              <div class="ingredients-label">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+                Ingredients
+              </div>
+              <div class="ingredients-list">
+                <span class="ingredient-tag">Foxnuts (Makhana)</span>
+                <span class="ingredient-tag">Cream n onion seasoning</span>
+                <span class="ingredient-tag">Edible oil (sunflower oil)</span>
+                <span class="ingredient-tag">Salt</span>
+              </div>
+            </div>
+            <div class="flavor-card-footer">
+              <a class="btn btn-primary" data-wa data-msg="Hi! I'd like to order PROTNUT Cream 'n' Onion Makhana.">
+                <svg class="icon"><use href="#ic-wa"/></svg>
+                Order Cream 'n' Onion
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="ingredient reveal">
-          <div class="badge"><svg class="icon"><use href="#ic-raisin"/></svg></div>
-          <div><h3>Raisins</h3><span class="local">Kishmish</span><p>Sun-dried and naturally sweet — no added sugar.</p></div>
+
+        <!-- 5. Tangy Tomato -->
+        <div class="flavor-card reveal">
+          <div class="flavor-card-media">
+            <img src="images/tangy-tomato.jpg" alt="PROTNUT Tangy Tomato Makhana" loading="lazy">
+            <span class="flavor-badge-pill">🍅 Sweet & Tangy</span>
+          </div>
+          <div class="flavor-card-body">
+            <span class="flavor-tagline">Sun-Ripened Tomato Burst</span>
+            <h3>Tangy Tomato Makhana</h3>
+            <p class="flavor-desc">
+              Sun-ripened red tomatoes blended with sweet, tangy, and mildly spiced notes that keep you coming back for just one more bite.
+            </p>
+            <div class="ingredients-box">
+              <div class="ingredients-label">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+                Ingredients
+              </div>
+              <div class="ingredients-list">
+                <span class="ingredient-tag">Foxnuts (Makhana)</span>
+                <span class="ingredient-tag">Tangy tomato seasoning</span>
+                <span class="ingredient-tag">Edible oil (sunflower oil)</span>
+                <span class="ingredient-tag">Salt</span>
+              </div>
+            </div>
+            <div class="flavor-card-footer">
+              <a class="btn btn-primary" data-wa data-msg="Hi! I'd like to order PROTNUT Tangy Tomato Makhana.">
+                <svg class="icon"><use href="#ic-wa"/></svg>
+                Order Tangy Tomato
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="ingredient reveal">
-          <div class="badge"><svg class="icon"><use href="#ic-date"/></svg></div>
-          <div><h3>Dried Dates</h3><span class="local">Khajur</span><p>Soft, chewy pieces that round out every handful.</p></div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BRAND STORY SECTION ===================== -->
+  <section class="story-section" id="story">
+    <div class="wrap">
+      <div class="story-grid">
+        <div class="story-content reveal">
+          <span class="eyebrow" style="color: var(--gold-bright);">The PROTNUT Story</span>
+          <h2>From a simple idea to a taste worth sharing.</h2>
+          <div class="story-quote">
+            "At PROTNUT, we believe that good food should do more than satisfy hunger—it should bring people together, create little moments of happiness, and leave you wanting one more bite."
+          </div>
+          <p class="story-body">
+            PROTNUT brings together natural nutrition and irreversible taste. Our makhana is crafted to deliver a light crunchy and flavourful snacking experience thoughtfully seasoned from those who believe better snacking should never compromise on taste.
+          </p>
+          <div class="story-highlights">
+            <div class="story-highlight-card">
+              <h4>Thoughtful Seasoning</h4>
+              <p>Every flavor recipe is balanced to enhance the natural nuttiness of makhana rather than overpower it.</p>
+            </div>
+            <div class="story-highlight-card">
+              <h4>Pure Sunflower Oil</h4>
+              <p>Lightly roasted using heart-healthy sunflower oil—clean, light, and digestible.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="story-visual reveal">
+          <div class="story-visual-card">
+            <img class="logo-big" src="IMG-20260905-WA0005.jpg" alt="PROTNUT Brand Logo">
+            <h3>PROTNUT</h3>
+            <p class="motto">We Enhance Natural Nutrition with Taste</p>
+            <div class="story-metrics">
+              <div class="metric-box">
+                <div class="number">100%</div>
+                <div class="label">Natural Makhana</div>
+              </div>
+              <div class="metric-box">
+                <div class="number">0%</div>
+                <div class="label">Artificial Colors</div>
+              </div>
+              <div class="metric-box">
+                <div class="number">5</div>
+                <div class="label">Signature Flavors</div>
+              </div>
+              <div class="metric-box">
+                <div class="number">High</div>
+                <div class="label">Protein & Fiber</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===================== WHY PROTNUT ===================== -->
-  <section class="why" id="why">
+  <!-- ===================== WHY MAKHANA / NUTRITION ===================== -->
+  <section id="nutrition">
     <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">Why protnut</span>
-        <h2>Made the slow way, on purpose.</h2>
+      <div class="section-head center reveal">
+        <span class="eyebrow">Guilt-Free Goodness</span>
+        <h2>Why Snacking on PROTNUT is Smarter</h2>
+        <p>
+          Makhana (lotus foxnut) has been India's superfood for centuries. Here is why PROTNUT makes it your go-to everyday snack.
+        </p>
       </div>
-      <div class="why-grid">
-        <div class="why-item reveal">
-          <div class="num">01</div>
-          <h3>Hand-sorted</h3>
-          <p>Each batch is checked by hand to pull out broken pieces, shells and dust before it ever reaches the roaster.</p>
+
+      <div class="benefits-grid">
+        <div class="benefit-card reveal">
+          <div class="benefit-icon">💪</div>
+          <h3>Plant Protein Power</h3>
+          <p>Packed with natural plant protein and dietary fiber to keep you feeling full, light, and focused.</p>
         </div>
-        <div class="why-item reveal">
-          <div class="num">02</div>
-          <h3>Small-batch roasted</h3>
-          <p>We roast in small batches so every nut gets even heat — no burnt edges, no raw centres.</p>
+
+        <div class="benefit-card reveal">
+          <div class="benefit-icon">🔥</div>
+          <h3>Roasted, Never Fried</h3>
+          <p>Slow-roasted gently with sunflower oil so you get that iconic crisp crunch with a fraction of typical chip fats.</p>
         </div>
-        <div class="why-item reveal">
-          <div class="num">03</div>
-          <h3>Sealed fresh</h3>
-          <p>Vacuum-sealed pouches lock in the crunch from the day we pack it to the day you open it.</p>
+
+        <div class="benefit-card reveal">
+          <div class="benefit-icon">🌿</div>
+          <h3>100% Gluten-Free</h3>
+          <p>Naturally grain-free and gluten-free, making it gentle on digestion and ideal for clean lifestyles.</p>
         </div>
-        <div class="why-item reveal">
-          <div class="num">04</div>
-          <h3>Nothing extra</h3>
-          <p>No added sugar, no oil, no preservatives. Just the dry fruits, mixed in the right ratio.</p>
+
+        <div class="benefit-card reveal">
+          <div class="benefit-icon">❤️</div>
+          <h3>Zero Trans Fat</h3>
+          <p>Low in calories and sodium, zero trans fats, and zero cholesterol. Wholesome joy for all ages.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===================== PACKS / PRICING ===================== -->
+  <!-- ===================== PACKS & PRICING ===================== -->
   <section id="packs">
     <div class="wrap">
       <div class="section-head center reveal">
-        <span class="eyebrow">Pick a pack</span>
-        <h2>One mix, three sizes.</h2>
-        <p style="color:var(--text-soft);">Prices below are samples — update them to match your own pricing.</p>
+        <span class="eyebrow">Pick Your Crunch</span>
+        <h2>Packs for Every Craving</h2>
+        <p>Choose individual flavors or sample the complete 5-flavor collection.</p>
       </div>
 
       <div class="packs-grid">
-        <div class="pack reveal">
-          <span class="size">250 g</span>
-          <h3>Snack Pack</h3>
-          <div class="price">₹249</div>
+
+        <!-- Pack 1 -->
+        <div class="pack-card reveal">
+          <span class="pack-sub">Everyday Crunch</span>
+          <h3>Snack Pouch</h3>
+          <div class="pack-price">₹119 <span>/ pack</span></div>
           <ul>
-            <li><svg class="icon"><use href="#ic-check"/></svg>Good for everyday snacking</li>
-            <li><svg class="icon"><use href="#ic-check"/></svg>Resealable pouch</li>
-            <li><svg class="icon"><use href="#ic-check"/></svg>~10 servings</li>
+            <li><svg><use href="#ic-check"/></svg> Pick any 1 of 5 signature flavors</li>
+            <li><svg><use href="#ic-check"/></svg> Resealable freshness pouch</li>
+            <li><svg><use href="#ic-check"/></svg> Ideal for work desk & travel</li>
+            <li><svg><use href="#ic-check"/></svg> Light on stomach, big on crunch</li>
           </ul>
-          <a class="btn btn-ghost" data-wa data-msg="Hi! I'd like to order the PROTNUT Snack Pack (250g).">Order on WhatsApp</a>
+          <a class="btn btn-ghost" data-wa data-msg="Hi! I'd like to order the PROTNUT Snack Pouch (₹119).">Order on WhatsApp</a>
         </div>
 
-        <div class="pack popular reveal">
-          <span class="tag">Most ordered</span>
-          <span class="size">500 g</span>
-          <h3>Family Pack</h3>
-          <div class="price">₹459</div>
+        <!-- Pack 2: Popular Discovery Pack -->
+        <div class="pack-card popular reveal">
+          <span class="pack-badge">Best Value • Most Popular</span>
+          <span class="pack-sub">All 5 Signature Flavors</span>
+          <h3>Flavor Discovery Pack</h3>
+          <div class="pack-price">₹499 <span>/ 5-pack combo</span></div>
           <ul>
-            <li><svg class="icon"><use href="#ic-check"/></svg>Best value per gram</li>
-            <li><svg class="icon"><use href="#ic-check"/></svg>Stocks up the whole week</li>
-            <li><svg class="icon"><use href="#ic-check"/></svg>~20 servings</li>
+            <li><svg><use href="#ic-check"/></svg> 1 x Peri Peri (Fiery & Tangy)</li>
+            <li><svg><use href="#ic-check"/></svg> 1 x Black Pepper (Aromatic Bold)</li>
+            <li><svg><use href="#ic-check"/></svg> 1 x Cheddar Cheese (Savory Creamy)</li>
+            <li><svg><use href="#ic-check"/></svg> 1 x Cream 'n' Onion (Velvety Herby)</li>
+            <li><svg><use href="#ic-check"/></svg> 1 x Tangy Tomato (Sweet & Zesty)</li>
           </ul>
-          <a class="btn btn-primary" data-wa data-msg="Hi! I'd like to order the PROTNUT Family Pack (500g).">Order on WhatsApp</a>
+          <a class="btn btn-primary" data-wa data-msg="Hi! I'd like to order the PROTNUT Flavor Discovery 5-Pack (₹499).">Order Combo on WhatsApp</a>
         </div>
 
-        <div class="pack reveal">
-          <span class="size">1 kg</span>
-          <h3>Gift Box</h3>
-          <div class="price">₹849</div>
+        <!-- Pack 3: Family / Party Pack -->
+        <div class="pack-card reveal">
+          <span class="pack-sub">Snack Party</span>
+          <h3>Mega Crunch Box</h3>
+          <div class="pack-price">₹899 <span>/ 10-pack box</span></div>
           <ul>
-            <li><svg class="icon"><use href="#ic-check"/></svg>Festive box packaging</li>
-            <li><svg class="icon"><use href="#ic-check"/></svg>Great for gifting</li>
-            <li><svg class="icon"><use href="#ic-check"/></svg>~40 servings</li>
+            <li><svg><use href="#ic-check"/></svg> 2 packs of all 5 signature flavors</li>
+            <li><svg><use href="#ic-check"/></svg> Perfect for family snacking & gifting</li>
+            <li><svg><use href="#ic-check"/></svg> Premium gift-ready packaging</li>
+            <li><svg><use href="#ic-check"/></svg> Maximum savings & free shipping</li>
           </ul>
-          <a class="btn btn-ghost" data-wa data-msg="Hi! I'd like to order the PROTNUT Gift Box (1kg).">Order on WhatsApp</a>
+          <a class="btn btn-ghost" data-wa data-msg="Hi! I'd like to order the PROTNUT Mega Crunch Box (₹899).">Order Box on WhatsApp</a>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ===================== TESTIMONIALS ===================== -->
-  <section id="reviews">
+  <!-- ===================== REVIEWS / TESTIMONIALS ===================== -->
+  <section id="reviews" style="background: rgba(29, 87, 38, 0.03);">
     <div class="wrap">
       <div class="section-head center reveal">
-        <span class="eyebrow">What customers say</span>
-        <h2>Trusted for the everyday & the festive.</h2>
+        <span class="eyebrow">Loved by Snackers</span>
+        <h2>What People Are Saying</h2>
       </div>
-      <div class="quotes-grid">
-        <div class="quote reveal">
-          <div class="stars">★★★★★</div>
-          <p>"The mix is exactly the same every time I order — same ratio, same crunch. That consistency is rare."</p>
-          <div class="who">Anjali Deshmukh</div>
-          <div class="where">Pune</div>
+
+      <div class="packs-grid" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="flavor-card reveal" style="padding: 28px;">
+          <div style="color: var(--gold); font-size: 1.1rem; margin-bottom: 12px;">★★★★★</div>
+          <p style="font-size: 0.96rem; color: var(--text-dark); margin-bottom: 16px; font-style: italic;">
+            "The Peri Peri makhana has the exact kick I was looking for! You can taste the genuine crunch, and it doesn't leave any greasy aftertaste."
+          </p>
+          <div style="font-weight: 700; color: var(--forest-dark);">Ananya Deshpande</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted);">Pune</div>
         </div>
-        <div class="quote reveal">
-          <div class="stars">★★★★★</div>
-          <p>"Ordered the Gift Box for Diwali this year instead of sweets — everyone asked where it was from."</p>
-          <div class="who">Rohan Mehta</div>
-          <div class="where">Mumbai</div>
+
+        <div class="flavor-card reveal" style="padding: 28px;">
+          <div style="color: var(--gold); font-size: 1.1rem; margin-bottom: 12px;">★★★★★</div>
+          <p style="font-size: 0.96rem; color: var(--text-dark); margin-bottom: 16px; font-style: italic;">
+            "The Discovery 5-pack was a huge hit at home. Cheddar Cheese and Cream 'n' Onion disappeared in two days! Reordering soon."
+          </p>
+          <div style="font-weight: 700; color: var(--forest-dark);">Rohan Nair</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted);">Mumbai</div>
         </div>
-        <div class="quote reveal">
-          <div class="stars">★★★★★</div>
-          <p>"No added sugar and you can actually taste it — clean, fresh, never stale or rubbery."</p>
-          <div class="who">Meera Kulkarni</div>
-          <div class="where">Nagpur</div>
+
+        <div class="flavor-card reveal" style="padding: 28px;">
+          <div style="color: var(--gold); font-size: 1.1rem; margin-bottom: 12px;">★★★★★</div>
+          <p style="font-size: 0.96rem; color: var(--text-dark); margin-bottom: 16px; font-style: italic;">
+            "Black Pepper is my personal favorite. Light, spicy, clean sunflower oil roasting—finally a snack I feel good eating while working."
+          </p>
+          <div style="font-weight: 700; color: var(--forest-dark);">Kavita Shinde</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted);">Nagpur</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===================== FINAL CTA ===================== -->
+  <!-- ===================== CTA BANNER ===================== -->
   <section>
     <div class="wrap">
-      <div class="final-cta reveal">
-        <div class="final-cta-wrap">
-          <h2>Ready for your first PROTNUT pack?</h2>
-          <p>Message us on WhatsApp — tell us the pack you want and where to send it.</p>
-          <a class="btn btn-primary" data-wa data-msg="Hi! I'd like to order PROTNUT Mixed Dry Fruits.">
-            <svg class="icon" style="width:18px;height:18px"><use href="#ic-wa"/></svg>
+      <div class="cta-banner reveal">
+        <h2>Ready for your first PROTNUT bite?</h2>
+        <p>
+          Send us a message on WhatsApp or email us directly at <strong>Protnutindia@gmail.com</strong>. Tell us which flavors you'd love, and we'll ship freshly roasted packs to your doorstep!
+        </p>
+        <div class="cta-actions">
+          <a class="btn btn-gold" data-wa data-msg="Hi! I want to order PROTNUT Makhana packs.">
+            <svg class="icon"><use href="#ic-wa"/></svg>
             Order on WhatsApp
+          </a>
+          <a href="mailto:Protnutindia@gmail.com" class="btn btn-white">
+            <svg class="icon"><use href="#ic-mail"/></svg>
+            Email: Protnutindia@gmail.com
           </a>
         </div>
       </div>
@@ -534,53 +1529,74 @@
 <footer id="contact">
   <div class="wrap footer-grid">
     <div>
-      <a href="#top" class="brand"><img class="logo-img" src="IMG-20260905-WA0005.jpg" alt="PROTNUT logo">PROTNUT</a>
-      <p class="tag">We enhance natural nutrition with taste. Premium mixed dry fruits, hand-sorted and small-batch roasted. Mixed in Maharashtra, sent across India.</p>
+      <a href="#top" class="brand">
+        <img class="logo-img" src="IMG-20260905-WA0005.jpg" alt="PROTNUT logo">
+        <span>PROTNUT</span>
+      </a>
+      <p class="brand-about">
+        Protnut brings together natural nutrition and irreversible taste. Our makhana is crafted to deliver a light, crunchy, and flavourful snacking experience, thoughtfully seasoned for mindful snackers across India.
+      </p>
     </div>
+
     <div>
-      <h4>Quick Links</h4>
+      <h4>Explore</h4>
       <ul>
-        <li><a href="#inside">What's Inside</a></li>
-        <li><a href="#why">Why PROTNUT</a></li>
-        <li><a href="#packs">Packs</a></li>
-        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#flavors">5 Signature Flavors</a></li>
+        <li><a href="#story">The PROTNUT Story</a></li>
+        <li><a href="#nutrition">Nutritional Benefits</a></li>
+        <li><a href="#packs">Packs & Combos</a></li>
+        <li><a href="#reviews">Customer Reviews</a></li>
       </ul>
     </div>
+
     <div>
-      <h4>Contact</h4>
-      <!-- CONTACT DETAILS: replace phone, email and address below -->
-      <div class="contact-item">
-        <svg class="icon"><use href="#ic-wa"/></svg>
-        <a data-wa data-msg="Hi! I'd like to order PROTNUT Mixed Dry Fruits.">+91 90000 00000 (WhatsApp)</a>
+      <h4>Contact Us</h4>
+      <div class="footer-contact-item">
+        <svg><use href="#ic-mail"/></svg>
+        <div>
+          <span style="display:block; font-size:0.75rem; color:#A9BFA3; text-transform:uppercase;">Official Email</span>
+          <a href="mailto:Protnutindia@gmail.com">Protnutindia@gmail.com</a>
+        </div>
       </div>
-      <div class="contact-item">
-        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7l9 6 9-6M5 5h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg>
-        <a href="mailto:hello@protnut.in">hello@protnut.in</a>
+      <div class="footer-contact-item">
+        <svg><use href="#ic-wa"/></svg>
+        <div>
+          <span style="display:block; font-size:0.75rem; color:#A9BFA3; text-transform:uppercase;">WhatsApp Order</span>
+          <a data-wa data-msg="Hi! I'd like to order PROTNUT Makhana.">Order via WhatsApp</a>
+        </div>
       </div>
-      <div class="contact-item">
-        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s7-7.4 7-12.4A7 7 0 0 0 5 9.6C5 14.6 12 22 12 22z"/><circle cx="12" cy="9.5" r="2.4"/></svg>
-        <span>Sangli, Maharashtra, India</span>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M12 22s7-7.4 7-12.4A7 7 0 0 0 5 9.6C5 14.6 12 22 12 22z"/>
+          <circle cx="12" cy="9.5" r="2.4"/>
+        </svg>
+        <div>
+          <span style="display:block; font-size:0.75rem; color:#A9BFA3; text-transform:uppercase;">Location</span>
+          <span>Maharashtra, India • Shipping Pan-India</span>
+        </div>
       </div>
     </div>
   </div>
+
   <div class="wrap footer-bottom">
     <span>© 2026 PROTNUT. All rights reserved.</span>
-    <span>We enhance natural nutrition with taste.</span>
+    <span>From a simple idea to a taste worth sharing.</span>
   </div>
 </footer>
 
-<!-- Floating WhatsApp button -->
-<a class="fab-wa" data-wa data-msg="Hi! I'd like to order PROTNUT Mixed Dry Fruits." aria-label="Order on WhatsApp">
-  <svg class="icon" style="color:#fff"><use href="#ic-wa"/></svg>
+<!-- Floating WhatsApp Action Button -->
+<a class="fab-wa" data-wa data-msg="Hi! I'd like to order PROTNUT Makhana." aria-label="Chat on WhatsApp">
+  <svg><use href="#ic-wa"/></svg>
 </a>
 
+<!-- JavaScript -->
 <script>
-  // ====== 1) SET YOUR WHATSAPP NUMBER HERE ======
-  // Country code + number, digits only, no + no spaces, e.g. "919876543210"
-  const WHATSAPP_NUMBER = "91XXXXXXXXXX"; // TODO: replace with your real WhatsApp number
+  // WhatsApp ordering config
+  // Replace with target WhatsApp phone number if required
+  const WHATSAPP_NUMBER = "919000000000";
 
-  document.querySelectorAll('[data-wa]').forEach(function(el){
-    var msg = el.getAttribute('data-msg') || "Hi! I'd like to order PROTNUT Mixed Dry Fruits.";
+  document.querySelectorAll('[data-wa]').forEach(function(el) {
+    var msg = el.getAttribute('data-msg') || "Hi! I'd like to order PROTNUT Makhana.";
     el.href = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg);
     el.target = '_blank';
     el.rel = 'noopener';
@@ -589,25 +1605,32 @@
   // Mobile menu toggle
   var burger = document.getElementById('burgerBtn');
   var mobileMenu = document.getElementById('mobileMenu');
-  burger.addEventListener('click', function(){
+  burger.addEventListener('click', function() {
     var open = mobileMenu.classList.toggle('open');
     burger.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
-  mobileMenu.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', function(){ mobileMenu.classList.remove('open'); });
+  mobileMenu.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() { mobileMenu.classList.remove('open'); });
   });
 
-  // Scroll-reveal
+  // Modern IntersectionObserver Scroll-Reveal
   if ('IntersectionObserver' in window) {
-    var revealEls = document.querySelectorAll('.reveal');
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+    var revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          revealObserver.unobserve(entry.target);
+        }
       });
-    }, { threshold: 0.15 });
-    revealEls.forEach(function(el){ io.observe(el); });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(function(el) {
+      revealObserver.observe(el);
+    });
   } else {
-    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+    document.querySelectorAll('.reveal').forEach(function(el) {
+      el.classList.add('in');
+    });
   }
 </script>
 
